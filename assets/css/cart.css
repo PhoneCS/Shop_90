@@ -1,0 +1,84 @@
+/* สไตล์ของรายการในตะกร้า */
+.cart-item {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ปรับขนาดรูปภาพ */
+.cart-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ปุ่มลบสินค้า */
+.btn-remove {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+    border: none;
+    background: none;
+}
+
+.btn-remove:hover {
+    color: #e60000;
+    transform: scale(1.2);
+}
+
+/* ปุ่มชำระเงิน */
+.btn-checkout {
+    background: #28a745;
+    color: white;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-checkout:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+/* สไตล์สำหรับกล่องสรุปราคา */
+.cart-summary {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ปรับสไตล์สำหรับปุ่มที่ใช้ในการซื้อสินค้า */
+.btn-shop, .btn-checkout {
+    display: inline-block;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ปุ่มช็อปปิ้ง */
+.btn-shop {
+    background: #ff9800;
+}
+
+.btn-shop:hover {
+    background: #e68900;
+    transform: scale(1.05);
+}
