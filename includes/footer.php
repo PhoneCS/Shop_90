@@ -20,7 +20,7 @@
                 <div class="footer-column">
                     <h3>ช่วยเหลือ</h3>
                     <ul>
-                        <li><a href="#">คำถามที่พบบ่อย</a></li>
+                        <li><a href="../page/questions.php">คำถามที่พบบ่อย</a></li>
                         <li><a href="#">วิธีสั่งซื้อสินค้า</a></li>
                         <li><a href="#">การจัดส่งและการติดตาม</a></li>
                         <li><a href="#">นโยบายการคืนสินค้า</a></li>
@@ -58,3 +58,5 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../assets/js/script.js"></script>
 <script src="../assets/js/cart.js"></script>
+<script src="../assets/js/productsaletag.js"></script>
+<script src="../assets/js/checkout.js"></script>

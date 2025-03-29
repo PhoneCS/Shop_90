@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('../includes/connect.inc.php');
+?>
 <!DOCTYPE html>
 <html lang="th">
 
@@ -30,10 +34,17 @@
                 </div>
 
                 <div class="user-actions">
-                    <a href="../auth/login.php">เข้าสู่ระบบ</a>
-                    <a href="../auth/register.php">สมัครสมาชิก</a>
+                    <?php
+                        if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
+                            echo "<a href='../page/profile.php?user_id=" . $_SESSION['user_id'] . "'>" . $_SESSION['username'] . "</a> | ";
+                            echo "<a href='../auth/logout.php'>ออกจากระบบ</a>";
+                        } else {
+                            echo "<a href='../auth/login.php'>เข้าสู่ระบบ</a> | <a href='../auth/register.php'>สมัครสมาชิก</a>";
+                        }
+                        ?>
                     <a href="../page/cart.php">ตะกร้า (<span class="cart-count">0</span>)</a>
                 </div>
+
             </div>
 
             <nav class="nav-main">
@@ -43,6 +54,18 @@
                     <li><a href="../page/promotions.php">โปรโมชั่น</a></li>
                     <li><a href="../page/about.php">เกี่ยวกับเรา</a></li>
                     <li><a href="../page/contact.php">ติดต่อเรา</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">การจัดส่ง</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../page/order_list.php">รายการสั่งซื้อ</a></li>
+                            <li><a href="../page/order_tracking.php">ติดตามสถานะคำสั่งซื้อ</a></li>
+                            <li><a href="#">ประวัติการจัดส่ง</a></li>
+                            <li><a href="#">ข้อมูลการจัดส่ง</a></li>
+                            <li><a href="#">อัพเดตการจัดส่ง</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../admin/admin_articles.php">บทความ</a></li>
+                    <li><a href="../page/addProduct.php">เพิ่มสินค้า</a></li>
                 </ul>
             </nav>
         </div>

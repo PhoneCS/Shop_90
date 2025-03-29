@@ -1,94 +1,89 @@
 <?php
 include('./includes/headerIndex.php');
+
+// ดึงข้อมูลสินค้าจากฐานข้อมูล
+$sql = "SELECT * FROM products";
+$result = $conn->query($sql);
+
+// ดึงข้อมูลหมวดหมู่จากฐานข้อมูล
+$sql_categories = "SELECT * FROM categories";
+$result_categories = $conn->query($sql_categories);
+
 ?>
-<!-- Hero Banner -->
+
 <section class="hero-banner">
+    <div class="hero-banner-images">
+        <!-- เพิ่มรูปภาพเพื่อให้มีภาพซ้ำ -->
+        <div class="hero-banner-slide" style="background-image: url('./assets/image/back1.jpg');"></div>
+
+    </div>
+
     <div class="hero-content">
-        <h1>Shop 90 มาช้อปกันเลย!</h1>
-        <p>พบกับสินค้าคุณภาพดีราคาเพียง 90 บาท พร้อมโปรโมชั่นสุดพิเศษ</p>
+        <!-- <h1>Shop 90 มาช้อปกันเลย!</h1>
+        <p>พบกับสินค้าคุณภาพดีราคาเพียง 90 บาท พร้อมโปรโมชั่นสุดพิเศษ</p> -->
         <a href="./page/products.php" class="btn">ช้อปเลย</a>
     </div>
 </section>
 
-<!-- Featured Products -->
+
+
 <section class="featured-products container">
     <h2 class="section-title">สินค้าแนะนำ</h2>
 
     <div class="products-grid">
-        <!-- Product 1 -->
+        <?php while ($row = $result->fetch_assoc()) { 
+            // คำนวณส่วนลด (ถ้ามี original_price)
+            if (!empty($row['original_price'])) {
+                $product_discount = round((($row['product_price'] - $row['original_price']) / $row['product_price']) * 100, 2);
+            } else {
+                $product_discount = 0;
+            }
+        ?>
         <div class="product-card">
-            <a href="./page/product-details.php?product_id=1">
-                <div class="product-img">
-                    <img src="./assets/image/product3.jpg" alt="เสื้อยืดลายกราฟิก">
-                    <img src="./assets/image/product3_hover.jpg" alt="เสื้อยืดลายกราฟิก" class="hover-image">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">เสื้อยืดลายกราฟิก</h3>
-                    <div class="product-price">
-                        <span class="original-price">฿120</span> <span class="discount-price">฿90</span>
-                    </div>
+            <a class="textProduct" href="./page/product-details.php?product_id=<?= $row['product_id']; ?>">
+            <div class="product-img">
+    <img src="./assets/image/<?= $row['product_image']; ?>" alt="<?= $row['product_name']; ?>">
+    
+    <?php if (!empty($row['product_image_hover'])) { ?>
+        <img src="./assets/image/<?= $row['product_image_hover']; ?>" alt="<?= $row['product_name']; ?>" class="hover-image">
+    <?php } ?>
+
+    <?php if (!empty($row['original_price'])) { ?>
+        <!-- แสดงแทบส่วนลดบนรูปภาพ -->
+        <div class="discount-tag">ลด <?= $product_discount; ?>%</div>
+    <?php } ?>
+</div>
+
+<div class="product-info">
+    <h3 class="product-title"><?= $row['product_name']; ?></h3>
+    <div class="product-price">
+        <?php if (!empty($row['original_price'])) { ?>
+            <!-- แสดงราคาที่ลด -->
+            <span class="original-price"><s>฿<?= number_format($row['product_price'], 2); ?></s></span> <!-- ราคาเดิม -->
+            <span class="discount-price">฿<?= number_format($row['original_price'], 2); ?></span> <!-- ราคาที่ลด -->
+        <?php } else { ?>
+            <!-- ถ้าไม่มีราคาที่ลด แสดงราคาเดิม -->
+            <span class="discount-price">฿<?= number_format($row['product_price'], 2); ?></span>
+        <?php } ?>
+    </div>
+
+
+
                     <div class="product-rating">
-                        <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i> <i class="far fa-star"></i>
+                        <?php
+                            $rating = round($row['product_rating']);
+                            for ($i = 0; $i < 5; $i++) {
+                                echo $i < $rating ? '<i class="fas fa-star"></i> ' : '<i class="far fa-star"></i> ';
+                            }
+                            ?>
                     </div>
                 </div>
             </a>
-            <button class="btn-add-to-cart-product" data-product-name="เสื้อยืดลายกราฟิก"
-                data-product-id="1">เพิ่มลงตะกร้า</button>
-        </div>
+            <button class="btn-add-to-cart-product" data-product-name="<?= $row['product_name']; ?>"
+                data-product-id="<?= $row['product_id']; ?>">เพิ่มลงตะกร้า</button>
 
-        <!-- Product 2 -->
-        <div class="product-card">
-            <a href="./page/product-details.php?product_id=1">
-                <div class="product-img">
-                    <img src="./assets/image/product4.jpg" alt="กระเป๋า">
-                    <img src="./assets/image/product4_hover.jpeg" alt="กระเป๋า" class="hover-image">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">กระเป๋า</h3>
-                    <div class="product-price">
-                        <span class="original-price">฿200</span> <span class="discount-price">฿150</span>
-                    </div>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i> <i class="far fa-star"></i>
-                    </div>
-                </div>
-            </a>
-            <button class="btn-add-to-cart-product" data-product-name="เสื้อยืดลายกราฟิก"
-                data-product-id="1">เพิ่มลงตะกร้า</button>
         </div>
-
-        <!-- Product 3 -->
-        <div class="product-card">
-            <div class="product-img">
-                <img src="/api/placeholder/300/300" alt="สินค้า 3">
-            </div>
-            <div class="product-info">
-                <h3 class="product-title">กระเป๋าผ้าลายสัตว์</h3>
-                <div class="product-price">
-                    <span class="original-price">110 บาท</span>
-                    90 บาท
-                </div>
-                <div class="product-rating">★★★★☆</div>
-                <a href="#" class="btn-add-to-cart-product" data-product-id="3"
-                    data-product-name="กระเป๋าผ้าลายสัตว์">เพิ่มลงตะกร้า</a>
-            </div>
-        </div>
-
-        <!-- Product 4 -->
-        <div class="product-card">
-            <div class="product-img">
-                <img src="/api/placeholder/300/300" alt="สินค้า 4">
-            </div>
-            <div class="product-info">
-                <h3 class="product-title">สายชาร์จโทรศัพท์</h3>
-                <div class="product-price">90 บาท</div>
-                <div class="product-rating">★★★★☆</div>
-                <a href="#" class="btn-add-to-cart-product" data-product-id="4"
-                    data-product-name="สายชาร์จโทรศัพท์">เพิ่มลงตะกร้า</a>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 
     <div class="text-center">
@@ -96,44 +91,25 @@ include('./includes/headerIndex.php');
     </div>
 </section>
 
+
+
+
+
 <!-- Categories -->
 <section class="categories container">
     <h2 class="section-title">หมวดหมู่สินค้า</h2>
-
     <div class="category-cards">
-        <!-- Category 1 -->
+        <?php while ($category = $result_categories->fetch_assoc()) { ?>
         <div class="category-card">
-            <img src="/api/placeholder/300/150" alt="เสื้อผ้า">
+            <img src="./assets/image/<?= $category['category_image']; ?>" alt="<?= $category['category_name']; ?>">
             <div class="category-card-content">
-                <h3>เสื้อผ้า</h3>
+                <h3><?= $category['category_name']; ?></h3>
             </div>
         </div>
-
-        <!-- Category 2 -->
-        <div class="category-card">
-            <img src="./assets/image/product1.jpg" alt="อุปกรณ์ไอที">
-            <div class="category-card-content">
-                <h3>อุปกรณ์ไอที</h3>
-            </div>
-        </div>
-
-        <!-- Category 3 -->
-        <div class="category-card">
-            <img src="./assets/image/product1.jpg" alt="ของใช้ในบ้าน">
-            <div class="category-card-content">
-                <h3>ของใช้ในบ้าน</h3>
-            </div>
-        </div>
-
-        <!-- Category 4 -->
-        <div class="category-card">
-            <img src="/api/placeholder/300/150" alt="เครื่องสำอาง">
-            <div class="category-card-content">
-                <h3>เครื่องสำอาง</h3>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </section>
+
 
 <!-- Promotions -->
 <section class="promotions container">

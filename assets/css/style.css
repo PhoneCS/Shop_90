@@ -18,7 +18,7 @@ body {
     padding: 0 20px;
 }
 
-a {
+.textProduct {
     text-decoration: none;
     color: #333;
 }
@@ -31,7 +31,7 @@ img {
 /* ปุ่ม ตะกล้า */
 .btn {
     padding: 12px 20px;
-    background-color: #ff5e00; /* สีส้ม */
+    background-color: #A0522D; /* สีส้ม */
     color: #fff;
     font-size: 16px;
     border: none;
@@ -43,7 +43,7 @@ img {
     background-color: #e14c00; /* เปลี่ยนสีเมื่อ hover */
 }
 .btn-add-to-cart {
-    background-color: #ff5722;
+    background-color: #A0522D;
     color: white;
     border: none;
     margin-top: 10px;
@@ -64,7 +64,7 @@ img {
 }
 /* ข้อความเตือนหรือลิงค์ */
 a {
-    color: #ff5e00;
+    color: #A0522D;
     text-decoration: none;
 }
 
@@ -89,7 +89,7 @@ header {
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #ff5e00;
+    color: #A0522D;
     cursor: pointer;
 }
 
@@ -145,7 +145,7 @@ header {
 .nav-main ul li a {
     font-weight: 500;
     transition: color 0.3s;
-    color: #ff5e00;
+    color: #A0522D;
     text-decoration: none;
 }
 
@@ -153,36 +153,62 @@ header {
 .nav-main ul li a:hover {
     color: #ca4d05;
 }
-
 /* Hero Banner */
 .hero-banner {
     height: 400px;
-    background-image: url('/api/placeholder/1200/400');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
+    position: relative;
+    
+}
+.hero-banner-images {
+    width: 100%;
+    height: 100%;
 }
 
+.hero-banner-slide {
+    width: 100%;
+    height: 100%;
+    background-size: contain; /* ทำให้ภาพขยายเต็มพื้นที่โดยไม่ถูกตัด */
+    background-position: center; /* จัดตำแหน่งภาพให้อยู่ตรงกลาง */
+    background-repeat: no-repeat; /* ป้องกันไม่ให้ภาพซ้ำ */
+}
+
+/* Hero content */
 .hero-content {
-    max-width: 500px;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    margin-left: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 1; /* ให้เนื้อหาของแบนเนอร์แสดงอยู่เหนือรูปภาพ */
 }
 
+/* ข้อความในแบนเนอร์ */
 .hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #333;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .hero-content p {
+    font-size: 18px;
     margin-bottom: 20px;
-    font-size: 1.1rem;
 }
+
+/* ปุ่ม */
+.hero-content .btn {
+    background-color: #A0522D; /* สีส้ม */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.hero-content .btn:hover {
+    background-color: #e64a19;
+}
+
 
 /* Featured Products */
 .section-title {
@@ -211,12 +237,6 @@ header {
 
 .product-info {
     padding: 15px;
-}
-
-.product-title {
-    font-weight: 500;
-    margin-bottom: 8px;
-    font-size: 1rem;
 }
 
 .product-price {
@@ -314,8 +334,10 @@ footer {
     background-color: #333;
     color: white;
     padding: 50px 0 20px;
+    margin-top: auto; /* ให้ footer อยู่ด้านล่างสุด */
 }
 
+/* ส่วนของเนื้อหาใน footer */
 .footer-content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -339,6 +361,7 @@ footer {
 .footer-column ul li a {
     color: #ddd;
     transition: color 0.3s;
+    text-decoration: none;
 }
 
 .footer-column ul li a:hover {
@@ -376,6 +399,37 @@ footer {
 .social-icons a:hover {
     background-color: #ff6b6b;
 }
+/* ซ่อนเมนู dropdown เริ่มต้น */
+.dropdown-menu {
+    display: none;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    background-color: #fff;
+    position: absolute;
+    z-index: 1000;
+    width: 200px;
+    border: 1px solid #ddd;
+}
+/* ใส่ระยะห่างจากปุ่ม */
+.dropdown {
+    position: relative;
+}
+
+/* เพิ่มสไตล์ให้เมนู */
+.dropdown-menu li a {
+    padding: 8px 15px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+
+/* เปลี่ยนสีเมื่อ hover */
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+
 
 /* Responsive */
 @media (max-width: 992px) {

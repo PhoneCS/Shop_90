@@ -1,84 +1,108 @@
-/* สไตล์ของรายการในตะกร้า */
+/* Style สำหรับหน้าตะกร้าสินค้า */
+.cart-section {
+    padding: 50px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .cart-item {
-    border-radius: 10px;
-    margin-bottom: 10px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid #eee;
     padding: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    background: #fff;
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    background-color: #fff;
 }
 
-.cart-item:hover {
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* ปรับขนาดรูปภาพ */
-.cart-img {
-    width: 80px;
-    height: 80px;
+.cart-item img {
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 8px;
 }
 
-/* ปุ่มลบสินค้า */
-.btn-remove {
-    color: #ff4d4d;
-    text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
-    border: none;
-    background: none;
+.cart-item-details {
+    flex: 1;
 }
 
-.btn-remove:hover {
-    color: #e60000;
-    transform: scale(1.2);
+.cart-item-details h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
-/* ปุ่มชำระเงิน */
-.btn-checkout {
-    background: #28a745;
-    color: white;
-    border-radius: 30px;
-    padding: 12px 20px;
-    font-weight: bold;
+.cart-item-details p {
     font-size: 16px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    border: none;
+    color: #666;
 }
 
-.btn-checkout:hover {
-    background: #218838;
-    transform: scale(1.05);
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    
+}
+.quantityproduct-control {
+    display: flex
+;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    margin-left: 111px;
+    margin-top: -39px;
 }
 
-/* สไตล์สำหรับกล่องสรุปราคา */
-.cart-summary {
-    margin-top: 20px;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+    font-size: 16px;
 }
 
-/* ปรับสไตล์สำหรับปุ่มที่ใช้ในการซื้อสินค้า */
-.btn-shop, .btn-checkout {
-    display: inline-block;
-    padding: 12px 25px;
-    color: white;
-    text-decoration: none;
+.price {
+    font-size: 18px;
     font-weight: bold;
-    border-radius: 30px;
-    transition: all 0.3s ease-in-out;
+    color: #333;
 }
 
-/* ปุ่มช็อปปิ้ง */
-.btn-shop {
-    background: #ff9800;
+.remove-item {
+    background-color: #A0522D;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.btn-shop:hover {
-    background: #e68900;
-    transform: scale(1.05);
+.remove-item:hover {
+    background-color: #d32f2f;
+}
+
+.cart-summary {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cart-summary h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.cart-summary p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
 }
