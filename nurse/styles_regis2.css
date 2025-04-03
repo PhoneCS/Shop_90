@@ -1,0 +1,120 @@
+/* styles1.css (registration) */
+
+html, body {
+    height: 120%; /* ทำให้ html และ body มีความสูงเต็มหน้าจอ */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('img/nsru1.jpg') no-repeat center center fixed; /* ตั้งค่าพื้นหลังเป็นรูปภาพ */
+    background-size: cover; /* ทำให้รูปภาพครอบคลุมทั้งพื้นหลัง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* จัดองค์ประกอบในแนวตั้ง */
+    height: 100vh;
+    margin: 0;
+}
+
+.header {
+    position: fixed; /* หัวข้อคงที่ที่ด้านบนของหน้าจอ */
+    top: 20px;
+    left: 20px;
+    font-size: 20px; /* ขนาดฟอนต์ของหัวข้อ */
+    color: #fff; /* สีของฟอนต์ */
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.5); /* สีพื้นหลังของหัวข้อให้แตกต่าง */
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 1000; /* ให้หัวข้ออยู่เหนือเนื้อหาอื่น */
+    width: auto; /* ความกว้างอัตโนมัติ */
+    box-sizing: border-box; /* รวม padding ในการคำนวณความกว้าง */
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    max-width: 450px; /* ขยายความกว้างของกล่อง */
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left; /* จัดข้อความให้อยู่ชิดซ้าย */
+    margin-top: 120px; /* เพิ่มระยะห่างจากหัวข้อ */
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 28px; /* ขยายขนาดฟอนต์ของหัวข้อ */
+    color: #333;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+    width: 100%;
+    padding: 12px; /* เพิ่มความสูงของช่องกรอกข้อมูล */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 10px; /* ปรับขนาดฟอนต์ให้ใหญ่ขึ้น */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="password"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px; /* ขยายขนาดฟอนต์ของปุ่ม */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* เพิ่มการเคลื่อนไหวเล็กน้อยเมื่อ hover */
+}
+
+.login-link {
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.login-link:hover {
+    color: #0056b3;
+}
+
+.alert {
+    color: #dc3545;
+    margin-top: 15px;
+    font-size: 16px;
+}
