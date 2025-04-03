@@ -1,0 +1,121 @@
+/* ตั้งค่าธีมสี */
+:root {
+    --main-color: #A0522D; /* สีส้มแบบ Shopee */
+    --text-dark: #333;
+    --bg-light: #f5f5f5;
+    --border-radius: 12px;
+    --shadow-light: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* กล่องโปรไฟล์ */
+.user-profile-container {
+    background: white;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    width: 380px;
+    text-align: center;
+    margin: 20px auto;
+    transition: 0.3s;
+}
+
+.user-profile-container:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ส่วนหัวโปรไฟล์ */
+.user-profile-header {
+    margin-bottom: 15px;
+}
+
+.user-profile-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--main-color);
+    object-fit: cover;
+}
+
+/* ชื่อและข้อมูลสมาชิก */
+h1 {
+    font-size: 20px;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.user-member-since {
+    font-size: 14px;
+    color: #888;
+}
+
+/* รายละเอียดผู้ใช้ */
+.user-profile-details {
+    text-align: left;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.user-profile-details p {
+    background: var(--bg-light);
+    padding: 12px;
+    border-radius: var(--border-radius);
+    margin: 6px 0;
+    font-weight: 500;
+}
+
+/* ปุ่มแก้ไขโปรไฟล์ */
+.user-profile-actions {
+    margin-top: 15px;
+}
+
+.user-edit-btn {
+    display: inline-block;
+    background: var(--main-color);
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 16px;
+    box-shadow: var(--shadow-light);
+}
+/* สไตล์สถานะผู้ใช้ */
+.user-status {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* สถานะผู้ใช้ธรรมดา */
+.user-status-regular {
+    background-color: #4CAF50; /* สีเขียวสำหรับผู้ใช้ธรรมดา */
+}
+
+/* สถานะแอดมิน */
+.user-status-admin {
+    background-color: #A0522D; /* สีแดงสำหรับแอดมิน */
+}
+
+.user-edit-btn:hover {
+    background: #e64a19;
+    transform: translateY(-2px);
+}
+
+/* ทำให้ responsive */
+@media screen and (max-width: 480px) {
+    .user-profile-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .user-profile-img {
+        width: 80px;
+        height: 80px;
+    }
+}
