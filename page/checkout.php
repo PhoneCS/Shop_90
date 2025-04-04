@@ -4,11 +4,16 @@ $user_id = $_SESSION['user_id'];
 
 $total_price = isset($_GET['total_price']) ? $_GET['total_price'] : 0;
 
-// ดึงข้อมูลสินค้าในตะกร้า
-$query = "SELECT c.*, p.product_name, p.product_price 
-          FROM cart c
-          JOIN products p ON c.product_id = p.product_id
-          WHERE c.user_id = '$user_id'"; 
+// ดึงข้อมูลสินค้าในตะกร้า พร้อมข้อมูลราคาลดถ้ามี
+$query = "
+    SELECT c.*, 
+           p.product_name, 
+           p.product_price, 
+           pd.discounted_price 
+    FROM cart c
+    JOIN products p ON c.product_id = p.product_id
+    LEFT JOIN product_discounts pd ON p.product_id = pd.product_id
+    WHERE c.user_id = '$user_id'";
 
 $result = mysqli_query($conn, $query);
 $cart_items = [];
@@ -54,12 +59,14 @@ $payment_link = "https://www.example.com/payment?amount=" . $total_price;
                 <?php 
                 $total = 0;
                 foreach ($cart_items as $item) {
-                    $item_total = $item['product_price'] * $item['quantity'];
+                    // ถ้ามีราคาลด ให้ใช้ discounted_price, ถ้าไม่มี ให้ใช้ product_price
+                    $price = isset($item['discounted_price']) && !empty($item['discounted_price']) ? $item['discounted_price'] : $item['product_price'];
+                    $item_total = $price * $item['quantity'];
                     $total += $item_total;
                 ?>
                 <tr>
                     <td><?php echo $item['product_name']; ?></td>
-                    <td>฿ <?php echo number_format($item['product_price'], 2); ?></td>
+                    <td>฿ <?php echo number_format($price, 2); ?></td>
                     <td><?php echo $item['quantity']; ?></td>
                     <td>฿ <?php echo number_format($item_total, 2); ?></td>
                 </tr>

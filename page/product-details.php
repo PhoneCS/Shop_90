@@ -198,7 +198,8 @@ if ($result->num_rows > 0) {
 
             <!-- ปุ่มเพิ่มลงตะกร้า -->
             <button class="btn-add-to-cart-product" data-product-name="<?php echo $product['product_name']; ?>"
-                data-product-id="<?php echo $product['product_id']; ?>">เพิ่มลงตะกร้า</button>
+                data-product-id="<?php echo $product['product_id']; ?>" data-product-stock="<?php echo $product['product_stock']; ?>">เพิ่มลงตะกร้า</button>
+
 
             <!-- ข้อมูลเพิ่มเติม -->
             <div class="product-additional-info">

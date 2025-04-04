@@ -96,7 +96,6 @@ window.onload = function() {
 };
 
 // เพิ่มสิ้นค้าลงตะกล้า
-
 document.addEventListener('DOMContentLoaded', function() {
     // สคริปต์สำหรับปุ่ม "เพิ่มลงตะกร้า"
     const addToCartButtons = document.querySelectorAll('.btn-add-to-cart-product');
@@ -105,9 +104,31 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             
+            // ดึงข้อมูลจาก attribute ของปุ่ม
             const productId = this.getAttribute('data-product-id');
             const productName = this.getAttribute('data-product-name');
+            const productStock = parseInt(this.getAttribute('data-product-stock'));
             
+            // ดึงค่าจำนวนจาก input ถ้ามีการกำหนดจำนวน
+            let quantity = parseInt(document.getElementById('productQuantity') ? document.getElementById('productQuantity').value : 1);
+            
+            // ถ้าไม่มีการกำหนดจำนวนใน input ก็ใช้จำนวน 1
+            if (isNaN(quantity) || quantity <= 0) {
+                quantity = 1;  // ตั้งค่าเป็น 1 ถ้าจำนวนที่ป้อนไม่ถูกต้อง
+            }
+
+            // เช็คจำนวนสินค้าว่ามากกว่าที่มีในสต็อกหรือไม่
+            if (quantity > productStock) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'จำนวนเกินสต็อก',
+                    text: `คุณสามารถเลือกสินค้าได้ไม่เกิน ${productStock} ชิ้น`,
+                    confirmButtonText: 'ตกลง',
+                    confirmButtonColor: '#3085d6',
+                });
+                return;
+            }
+
             // ส่งข้อมูลไปยัง PHP ด้วย AJAX
             const xhr = new XMLHttpRequest();
             xhr.open('POST', '../process/update_cart.php', true);
@@ -118,15 +139,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     Swal.fire({
                         icon: 'success',
                         title: 'เพิ่มลงตะกร้า',
-                        text: `เพิ่มสินค้า ${productName} ลงตะกร้าเรียบร้อยแล้ว!`,
+                        text: `เพิ่มสินค้า ${productName} จำนวน ${quantity} ชิ้น ลงตะกร้าเรียบร้อยแล้ว!`,
                         confirmButtonText: 'ตกลง',
                         confirmButtonColor: '#3085d6',
                     });
-                    
+
                     // อัพเดตจำนวนสินค้าในตะกร้า (จำลอง)
                     const cartCount = document.querySelector('.cart-count');
                     const currentCount = parseInt(cartCount.textContent);
-                    cartCount.textContent = currentCount + 1;
+                    cartCount.textContent = currentCount + quantity;
                 } else {
                     // แสดงข้อผิดพลาดถ้าการเพิ่มสินค้าล้มเหลว
                     Swal.fire({
@@ -138,10 +159,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             };
-            xhr.send('product_id=' + productId + '&product_name=' + productName);
+
+            // ส่งข้อมูลไปยัง PHP (การเพิ่มสินค้าลงตะกร้า)
+            xhr.send('product_id=' + productId + '&product_name=' + productName + '&quantity=' + quantity);
         });
     });
 });
+
 
 // เพิ่มลงตะกล้าของ index
 
@@ -153,9 +177,31 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             
+            // ดึงข้อมูลจาก attribute ของปุ่ม
             const productId = this.getAttribute('data-product-id');
             const productName = this.getAttribute('data-product-name');
+            const productStock = parseInt(this.getAttribute('data-product-stock'));
             
+            // ดึงค่าจำนวนจาก input ถ้ามีการกำหนดจำนวน
+            let quantity = parseInt(document.getElementById('productQuantity') ? document.getElementById('productQuantity').value : 1);
+            
+            // ถ้าไม่มีการกำหนดจำนวนใน input ก็ใช้จำนวน 1
+            if (isNaN(quantity) || quantity <= 0) {
+                quantity = 1;  // ตั้งค่าเป็น 1 ถ้าจำนวนที่ป้อนไม่ถูกต้อง
+            }
+
+            // เช็คจำนวนสินค้าว่ามากกว่าที่มีในสต็อกหรือไม่
+            if (quantity > productStock) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'จำนวนเกินสต็อก',
+                    text: `คุณสามารถเลือกสินค้าได้ไม่เกิน ${productStock} ชิ้น`,
+                    confirmButtonText: 'ตกลง',
+                    confirmButtonColor: '#3085d6',
+                });
+                return;
+            }
+
             // ส่งข้อมูลไปยัง PHP ด้วย AJAX
             const xhr = new XMLHttpRequest();
             xhr.open('POST', './process/update_cart.php', true);
@@ -166,15 +212,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     Swal.fire({
                         icon: 'success',
                         title: 'เพิ่มลงตะกร้า',
-                        text: `เพิ่มสินค้า ${productName} ลงตะกร้าเรียบร้อยแล้ว!`,
+                        text: `เพิ่มสินค้า ${productName} จำนวน ${quantity} ชิ้น ลงตะกร้าเรียบร้อยแล้ว!`,
                         confirmButtonText: 'ตกลง',
                         confirmButtonColor: '#3085d6',
                     });
-                    
+
                     // อัพเดตจำนวนสินค้าในตะกร้า (จำลอง)
                     const cartCount = document.querySelector('.cart-count');
                     const currentCount = parseInt(cartCount.textContent);
-                    cartCount.textContent = currentCount + 1;
+                    cartCount.textContent = currentCount + quantity;
                 } else {
                     // แสดงข้อผิดพลาดถ้าการเพิ่มสินค้าล้มเหลว
                     Swal.fire({
@@ -186,11 +232,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             };
-            xhr.send('product_id=' + productId + '&product_name=' + productName);
+
+            // ส่งข้อมูลไปยัง PHP (การเพิ่มสินค้าลงตะกร้า)
+            xhr.send('product_id=' + productId + '&product_name=' + productName + '&quantity=' + quantity);
         });
     });
 });
-
 // ปุ่มลบ
 function removeItem(productId) {
     // ส่งคำขอแบบ GET ไปยัง remove.php เพื่อลบสินค้าจากตะกร้า
@@ -226,11 +273,57 @@ function updateQuantity(action, productId) {
     xhr.send('product_id=' + productId + '&quantity=' + newQuantity);
 }
 
+
+
+// ฟังก์ชันเพื่อคำนวณยอดรวมในตะกร้า
 function updateTotalPrice() {
-    var totalPrice = 0;
-    var prices = document.querySelectorAll('.cart-item .price');
-    prices.forEach(function(price) {
-        totalPrice += parseFloat(price.innerText.replace('฿', '').replace(',', ''));
+    let totalPrice = 0;
+
+    // วนลูปหาทุกสินค้าที่อยู่ในตะกร้า
+    document.querySelectorAll('.cart-item').forEach(function(item) {
+        let price = parseFloat(item.getAttribute('data-price'));  // ดึงราคาจาก data-attribute
+        let quantity = parseInt(item.querySelector('.quantity-input').value); // ดึงจำนวนสินค้าจาก input
+
+        // คำนวณยอดรวมของสินค้ารายการนี้
+        totalPrice += price * quantity;
     });
-    document.getElementById('total-price').innerText = '฿ ' + totalPrice.toFixed(2);
+
+    // อัพเดตยอดรวมในหน้าเว็บ
+    document.getElementById('total-price').textContent = '฿ ' + totalPrice.toFixed(2);
+}
+
+// ฟังก์ชันเพื่ออัปเดตจำนวนสินค้าจากปุ่ม + หรือ -
+function updateQuantity(action, product_id) {
+    // ดึงค่าจำนวนสินค้าจาก input
+    let quantityInput = document.querySelector(`#quantity-${product_id}`);
+    let currentQuantity = parseInt(quantityInput.value);
+
+    // เพิ่มหรือลดจำนวนตามการคลิกปุ่ม
+    if (action === 'increase') {
+        currentQuantity++;
+    } else if (action === 'decrease' && currentQuantity > 1) {
+        currentQuantity--;
+    }
+
+    // อัปเดตค่าใน input
+    quantityInput.value = currentQuantity;
+
+    // ส่งข้อมูลจำนวนสินค้าไปยัง PHP เพื่ออัปเดตฐานข้อมูล
+    updateDatabaseQuantity(product_id, currentQuantity);
+}
+
+// ฟังก์ชันเพื่ออัปเดตฐานข้อมูล
+function updateDatabaseQuantity(product_id, quantity) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', '../process/update_cart_quantity.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // ตรวจสอบการอัปเดตแล้วให้คำนวณยอดรวมใหม่
+            updateTotalPrice();
+        } else {
+            alert('ไม่สามารถอัปเดตข้อมูลสินค้าได้');
+        }
+    };
+    xhr.send('product_id=' + product_id + '&quantity=' + quantity);
 }

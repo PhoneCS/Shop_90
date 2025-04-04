@@ -58,7 +58,11 @@ $result = $conn->query($sql);
                 </div>
             </a>
 
-            <button class="btn-add-to-cart-product" data-product-name="<?= $row['product_name']; ?>" data-product-id="<?= $row['product_id']; ?>">เพิ่มลงตะกร้า</button>
+            <!-- ปุ่มเพิ่มสินค้าลงตะกร้า -->
+            <button class="btn-add-to-cart-product" 
+                data-product-name="<?= $row['product_name']; ?>" 
+                data-product-id="<?= $row['product_id']; ?>"
+                data-product-stock="1">เพิ่มลงตะกร้า</button>
         </div>
         <?php
             }
