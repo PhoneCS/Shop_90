@@ -54,9 +54,9 @@ include('../includes/connect.inc.php');
                         <ul class="dropdown-menu">
                             <li><a href="../page/order_list.php">รายการสั่งซื้อ</a></li>
                             <li><a href="../page/order_tracking.php">ติดตามสถานะคำสั่งซื้อ</a></li>
-                            <li><a href="#">ประวัติการจัดส่ง</a></li>
+                            <li><a href="../page/order_history.php">ประวัติการจัดส่ง</a></li>
                             <li><a href="#">ข้อมูลการจัดส่ง</a></li>
-                            <li><a href="#">อัพเดตการจัดส่ง</a></li>
+                            <li><a href="../page/product_status.php">อัพเดตการจัดส่ง</a></li>
                         </ul>
                     </li>
                     <li><a href="../admin/admin_articles.php">บทความ</a></li>

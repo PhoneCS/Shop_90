@@ -73,13 +73,16 @@
 
 .team-members {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .team-member {
-    width: 30%;
-    text-align: center;
+    flex: 1 1 200px; /* ปรับขนาดให้ยืดหยุ่น */
+    max-width: 250px;
 }
+
 
 .team-member img {
     width: 100%;

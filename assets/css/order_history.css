@@ -1,0 +1,148 @@
+.order-history-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 600;
+}
+
+.order-history-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin-bottom: 200px;
+}
+
+.order-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.order-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-right: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.order-product {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.order-product-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.order-product-info h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.order-product-info p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+.order-status p {
+    font-size: 1rem;
+    color: #888;
+    margin-top: 10px;
+}
+
+.status-รอดำเนินการ {
+    color: orange;
+    font-weight: 600;
+}
+
+.status-กำลังจัดส่ง {
+    color: #2196F3;
+    font-weight: 600;
+}
+
+.status-จัดส่งแล้ว {
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+.rating-section {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 10px;
+    font-size: 1.8rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.rating-stars .star {
+    transition: color 0.3s ease;
+}
+
+.rating-stars .star.selected {
+    color: #FFD700;
+}
+
+.rating-stars .star:hover {
+    color: #FFB300;
+}
+
+.rating-stars .star:active {
+    transform: scale(1.1);
+}
+
+.order-item .order-details .order-status,
+.order-item .rating-section {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .order-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-product {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order-product-img {
+        margin-bottom: 10px;
+    }
+
+    .order-product-info {
+        text-align: center;
+    }
+
+    .order-status {
+        text-align: center;
+    }
+}

@@ -1,4 +1,5 @@
-<?php include('../includes/header.php'); ?>  <!-- รวมส่วนหัว -->
+<?php include('../includes/header.php'); ?>
+<!-- รวมส่วนหัว -->
 
 <!-- Contact Us Section -->
 <section class="contact-us container">
@@ -12,6 +13,7 @@
             <p>โทร: <a href="tel:+66987654321">+66 98 765 4321</a></p>
         </div>
 
+
         <div class="contact-method">
             <i class="fas fa-envelope"></i>
             <h3>อีเมล</h3>
@@ -19,9 +21,10 @@
         </div>
 
         <div class="contact-method">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>ที่อยู่</h3>
-            <p>1234 ถนนตัวอย่าง แขวงบางพลัด กรุงเทพมหานคร</p>
+            <i class="fas fa-briefcase"></i>
+            <h3>เสนอขายสินค้า / บริการ</h3>
+            <p>หากคุณต้องการนำเสนอสินค้าหรือบริการ กรุณา<a href="../page/offer_for_sale.php">กรอกแบบฟอร์มเสนอขาย</a>
+            </p>
         </div>
     </div>
 
@@ -39,6 +42,7 @@
                 <input type="email" id="email" name="email" placeholder="กรอกอีเมลของคุณ" required>
             </div>
 
+
             <div class="form-group">
                 <label for="message">ข้อความ</label>
                 <textarea id="message" name="message" rows="5" placeholder="กรอกข้อความของคุณ" required></textarea>
@@ -49,7 +53,8 @@
     </div>
 
     <!-- แผนที่ -->
-    
+
 </section>
 
-<?php include('../includes/footer.php'); ?>  <!-- รวมส่วนท้าย -->
+<?php include('../includes/footer.php'); ?>
+<!-- รวมส่วนท้าย -->

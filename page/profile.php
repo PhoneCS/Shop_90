@@ -71,6 +71,12 @@ $conn->close();
         <div class="user-profile-actions">
             <a href="../page/edit_profile.php?user_id=<?php echo $user_id; ?>" class="user-edit-btn">✏️ แก้ไขโปรไฟล์</a>
         </div>
+        <div class="user-profile-actions">
+    <a href="../page/offering_information.php?user_id=<?php echo $user_id; ?>" class="user-sell-btn">
+        <i class="fas fa-comment-dots"></i> เสนอขายสินค้า
+    </a>
+</div>
+
     </div>
 </body>
 

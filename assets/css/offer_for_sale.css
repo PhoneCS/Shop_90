@@ -1,0 +1,72 @@
+.form-sell-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Prompt', sans-serif;
+}
+
+.form-sell-title {
+    font-size: 28px;
+    color: #A0522D;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-sell-grid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.form-sell-col {
+    flex: 1;
+    min-width: 300px;
+}
+
+.form-sell-group {
+    margin-bottom: 20px;
+}
+
+.form-sell-group label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form-sell-group input,
+.form-sell-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.form-sell-group input:focus,
+.form-sell-group textarea:focus {
+    border-color: #A0522D;
+    outline: none;
+}
+
+.form-sell-submit {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #A0522D;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-sell-submit:hover {
+    background-color: #e64a19;
+}

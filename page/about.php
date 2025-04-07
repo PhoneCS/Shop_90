@@ -30,17 +30,22 @@
         <h3>พบกับทีมงานของเรา</h3>
         <div class="team-members">
             <div class="team-member">
-                <img src="images/team1.jpg" alt="สมาชิกทีม">
+                <img src="../assets/image/boss.png" alt="สมาชิกทีม">
                 <h4>ชื่อสมาชิก 1</h4>
                 <p>ตำแหน่ง</p>
             </div>
             <div class="team-member">
-                <img src="images/team2.jpg" alt="สมาชิกทีม">
+            <img src="../assets/image/boss.png" alt="สมาชิกทีม">
                 <h4>ชื่อสมาชิก 2</h4>
                 <p>ตำแหน่ง</p>
             </div>
             <div class="team-member">
-                <img src="images/team3.jpg" alt="สมาชิกทีม">
+            <img src="../assets/image/boss.png" alt="สมาชิกทีม">
+                <h4>ชื่อสมาชิก 3</h4>
+                <p>ตำแหน่ง</p>
+            </div>
+            <div class="team-member">
+            <img src="../assets/image/boss.png" alt="สมาชิกทีม">
                 <h4>ชื่อสมาชิก 3</h4>
                 <p>ตำแหน่ง</p>
             </div>

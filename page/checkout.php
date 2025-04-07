@@ -21,26 +21,58 @@ while ($row = mysqli_fetch_assoc($result)) {
     $cart_items[] = $row;
 }
 
-// สร้างลิงก์ QR Code 
-// ใส่รูป qr
-$payment_link = "https://www.example.com/payment?amount=" . $total_price;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+
+    // บันทึกประวัติการสั่งซื้อ
+    foreach ($cart_items as $item) {
+        $product_id = $item['product_id'];
+        $quantity = $item['quantity'];
+        $price = isset($item['discounted_price']) && $item['discounted_price'] !== null 
+                    ? $item['discounted_price'] 
+                    : $item['product_price'];
+        $total = $quantity * $price;
+
+        // บันทึกลงตาราง order_history
+        $insert = "INSERT INTO order_history (user_id, product_id, quantity, price, total, shipping_address, phone) 
+                   VALUES ('$user_id', '$product_id', '$quantity', '$price', '$total', '$address', '$phone')";
+        mysqli_query($conn, $insert);
+    }
+
+    // ล้างตะกร้าสินค้า
+    mysqli_query($conn, "DELETE FROM cart WHERE user_id = '$user_id'");
+
+    // แสดง SweetAlert แจ้งเตือนการชำระเงินสำเร็จ
+    echo "<script>
+        Swal.fire({
+            icon: 'success',
+            title: 'ชำระเงินสำเร็จ',
+            text: 'ระบบได้บันทึกคำสั่งซื้อของคุณแล้ว',
+            confirmButtonText: 'ดูประวัติ',
+        }).then(() => {
+            window.location.href = '../page/order_history.php'; // ส่งผู้ใช้ไปหน้าประวัติการสั่งซื้อ
+        });
+    </script>";
+}
 ?>
 
 <section class="checkout-container">
     <div class="shipping-info">
         <h3>ข้อมูลการจัดส่ง</h3>
-        <form id="shippingForm">
+        <form method="POST" id="shippingForm">
             <input type="hidden" id="user_id" value="<?php echo $user_id; ?>"> <!-- เพิ่ม hidden input -->
             <label>ชื่อ-นามสกุล:</label>
-            <input type="text" id="fullName" placeholder="กรอกชื่อ-นามสกุล" required>
+            <input type="text" id="fullName" name="fullName" placeholder="กรอกชื่อ-นามสกุล" required>
             <label>เบอร์โทร:</label>
-            <input type="text" id="phone" placeholder="กรอกเบอร์โทร" required>
+            <input type="text" id="phone" name="phone" placeholder="กรอกเบอร์โทร" required>
             <label>ที่อยู่:</label>
-            <textarea id="address" placeholder="กรอกที่อยู่" required></textarea>
+            <textarea id="address" name="address" placeholder="กรอกที่อยู่" required></textarea>
             <label>เมือง:</label>
             <input type="text" id="city" placeholder="กรอกชื่อเมือง" required>
             <label>รหัสไปรษณีย์:</label>
             <input type="text" id="zipcode" placeholder="กรอกรหัสไปรษณีย์" required>
+            <button type="submit" class="btn-payment">ชำระเงิน</button>
         </form>
     </div>
 
@@ -82,8 +114,6 @@ $payment_link = "https://www.example.com/payment?amount=" . $total_price;
             <h4>สแกน QR Code เพื่อชำระเงิน</h4>
             <div id="qrCode"></div>
         </div>
-
-        <button class="btn-payment" onclick="startPayment()">ชำระเงิน</button>
     </div>
 </section>
 

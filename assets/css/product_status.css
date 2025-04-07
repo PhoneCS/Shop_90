@@ -1,0 +1,76 @@
+.ship-form-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Prompt', sans-serif;
+  }
+  
+  .ship-form-title {
+    text-align: center;
+    font-size: 28px;
+    color: #A0522D;
+    margin-bottom: 30px;
+  }
+  
+  .ship-form-grid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .ship-form-left,
+  .ship-form-right {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .ship-input-box {
+    margin-bottom: 20px;
+  }
+  
+  .ship-input-box label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+  }
+  
+  .ship-input-box input,
+  .ship-input-box textarea,
+  .ship-input-box select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .ship-input-box textarea {
+    resize: vertical;
+  }
+  
+  .ship-form-action {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .ship-btn-submit {
+    background-color: #A0522D;
+    color: white;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ship-btn-submit:hover {
+    background-color: #e64a19;
+  }
+  

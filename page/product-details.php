@@ -208,21 +208,7 @@ if ($result->num_rows > 0) {
             </div>
 
             <!-- รีวิวสินค้า -->
-            <div class="product-reviews">
-                <h3>รีวิวสินค้า</h3>
-                <?php
-                // สมมติว่ามีตารางรีวิวที่เชื่อมโยงกับสินค้า
-                $review_query = "SELECT * FROM product_reviews WHERE product_id = ?";
-                $review_stmt = $conn->prepare($review_query);
-                $review_stmt->bind_param("i", $product_id);
-                $review_stmt->execute();
-                $review_result = $review_stmt->get_result();
 
-                while ($review = $review_result->fetch_assoc()) {
-                    echo "<p>" . $review['review_text'] . "</p>";
-                }
-                ?>
-            </div>
         </div>
     </div>
 
