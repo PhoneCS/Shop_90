@@ -1,0 +1,38 @@
+.issue-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 200px;
+}
+.issue-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+.custom-delete-btn {
+    background-color: #fff;
+    border: 2px solid #dc3545;
+    color: #dc3545;
+    padding: 8px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-delete-btn i {
+    color: #dc3545;
+}
+
+.custom-delete-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.custom-delete-btn:hover i {
+    color: white;
+}

@@ -1,4 +1,24 @@
-<?php include('../includes/header.php'); ?>
+<?php include('../includes/header.php'); 
+
+// ตรวจสอบว่าผู้ใช้ล็อกอินแล้วหรือยัง
+$name = '';
+$email = '';
+
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+
+    // ดึงชื่อและอีเมลจากฐานข้อมูล
+    $stmt = $conn->prepare("SELECT username, email FROM users WHERE user_id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $stmt->bind_result($username, $user_email);
+    $stmt->fetch();
+    $stmt->close();
+
+    $name = htmlspecialchars($username);
+    $email = htmlspecialchars($user_email);
+}
+?>
 <!-- รวมส่วนหัว -->
 
 <!-- Contact Us Section -->
@@ -31,15 +51,17 @@
     <!-- ฟอร์มติดต่อ -->
     <div class="contact-form">
         <h3>ส่งข้อความถึงเรา</h3>
-        <form action="submit_contact.php" method="POST">
+        <form action="../process/submit_contact.php" method="POST">
             <div class="form-group">
                 <label for="name">ชื่อ</label>
-                <input type="text" id="name" name="name" placeholder="กรอกชื่อของคุณ" required>
+                <input type="text" id="name" name="name" value="<?= $name ?>" placeholder="กรอกชื่อของคุณ" required
+                    readonly>
             </div>
 
             <div class="form-group">
                 <label for="email">อีเมล</label>
-                <input type="email" id="email" name="email" placeholder="กรอกอีเมลของคุณ" required>
+                <input type="email" id="email" name="email" value="<?= $email ?>" placeholder="กรอกอีเมลของคุณ" required
+                    readonly>
             </div>
 
 

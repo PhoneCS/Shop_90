@@ -41,7 +41,6 @@
     background-color: #007bff;
     border-color: #007bff;
     color: white;
-    margin-bottom: 250px;
 }
 
 .pagination .page-item.disabled .page-link {
@@ -56,4 +55,125 @@
 .pagination .page-link:hover {
     background-color: #0056b3;
     color: white;
+}
+
+/* กำหนดสไตล์สำหรับ modal */
+.custom-modal-dialog {
+    max-width: 90%; /* ขยายให้มีขนาดกว้างขึ้น */
+    margin: 30px auto; /* จัดให้กึ่งกลาง */
+}
+
+.custom-modal-header {
+    background-color: #A0522D;; /* สีพื้นหลังของ header */
+    color: white; /* สีข้อความ */
+    padding: 20px; /* เพิ่มระยะห่างภายใน */
+}
+
+.custom-modal-title {
+    font-size: 1.5rem; /* ขนาดข้อความในหัวข้อ */
+    font-weight: bold;
+}
+
+.custom-modal-close {
+    color: white; /* เปลี่ยนสีของปุ่มปิด */
+}
+
+.custom-modal-body {
+    padding: 20px; /* ระยะห่างใน body */
+    font-size: 1.1rem; /* ขนาดข้อความ */
+}
+
+.custom-image-card {
+    border-radius: 10px; /* มุมโค้ง */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เงา */
+    margin-bottom: 15px; /* ระยะห่างระหว่างรูป */
+}
+
+.custom-image-card img {
+    border-radius: 10px 10px 0 0; /* มุมโค้งที่มุมบน */
+    width: 100%; /* กว้างเต็ม */
+    height: auto;
+}
+
+.custom-modal-footer {
+    padding: 15px 20px; /* ระยะห่างใน footer */
+    text-align: right; /* จัดข้อความให้ชิดขวา */
+}
+
+.custom-btn-close {
+    background-color: #6c757d; /* ปุ่มปิด */
+    color: white;
+}
+
+.custom-btn-save {
+    background-color: #28a745; /* ปุ่มบันทึก */
+    color: white;
+}
+
+/* การจัดการข้อความที่แสดงใน modal */
+.custom-modal-body p {
+    margin-bottom: 10px; /* ระยะห่างระหว่างย่อหน้า */
+}
+
+/* การจัดระเบียบภาพสินค้า */
+.custom-images-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* ช่องว่างระหว่างภาพ */
+}
+/* ปรับขนาดภาพให้เท่ากัน */
+.custom-image-card img {
+    width: 100%; /* ทำให้ภาพเต็มขนาดของการ์ด */
+    height: 200px; /* กำหนดความสูงให้คงที่ */
+    object-fit: cover; /* ทำให้ภาพครอบคลุมพื้นที่ได้อย่างเหมาะสม */
+    border-radius: 10px 10px 0 0; /* มุมโค้งที่มุมบน */
+}
+
+/* ปรับขนาดการ์ดภาพให้เหมาะสม */
+.custom-image-card {
+    border-radius: 10px; /* มุมโค้ง */
+    overflow: hidden; /* ซ่อนส่วนเกินของการ์ด */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับการ์ด */
+}
+
+/* การจัดการแถวของภาพสินค้า */
+.custom-images-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* ระยะห่างระหว่างภาพ */
+}
+
+/* การตั้งค่าขนาดของแต่ละคอลัมน์ */
+.custom-images-row .col-6, .custom-images-row .col-md-3 {
+    flex: 1 1 22%; /* ให้แต่ละภาพมีความกว้าง 22% ของคอลัมน์ */
+    max-width: 22%; /* จำกัดความกว้างสูงสุด */
+    min-width: 150px; /* กำหนดขนาดต่ำสุด */
+}
+
+/* ปรับขนาดของ modal ให้ออกมาพอดี */
+.custom-modal-dialog {
+    max-width: 80%; /* กำหนดขนาดของ modal */
+    margin: 30px auto; /* จัดให้กึ่งกลาง */
+}
+
+.view-order-btn {
+    background-color: #A0522D; /* สีฟ้า info */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 10px;
+    transition: all 0.3s ease;
+}
+
+.view-order-btn:hover {
+    background-color: #d66d3c;
+    color: #fff;
+    transform: scale(1.05);
+}
+.product-names-cell {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
 }

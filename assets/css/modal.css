@@ -47,7 +47,7 @@
 
 .modal-content button {
     width: 100%;
-    background: #28a745;
+    background: #A0522D;
     color: #fff;
     padding: 10px;
     border: none;
@@ -58,7 +58,7 @@
 }
 
 .modal-content button:hover {
-    background: #218838;
+    background: #d66d3c;
 }
 
 .modal, .promotion-modal {
@@ -162,7 +162,7 @@ label {
 }
 /* สร้างคลาสสำหรับปุ่มบันทึกโปรโมชั่น */
 .button-save-promotion {
-    background-color: #4CAF50; /* สีพื้นหลังปุ่ม (สีเขียวสด) */
+    background-color: #A0522D; /* สีพื้นหลังปุ่ม (สีเขียวสด) */
     color: white; /* สีตัวอักษรเป็นขาว */
     padding: 12px 24px; /* ระยะห่างภายในปุ่ม */
     font-size: 16px; /* ขนาดตัวอักษร */
@@ -174,13 +174,13 @@ label {
 
 /* เปลี่ยนสีเมื่อ hover */
 .button-save-promotion:hover {
-    background-color: #45a049; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    background-color: #d66d3c; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ปุ่ม */
 }
 
 /* เปลี่ยนแสงเมื่อปุ่มถูกคลิก */
 .button-save-promotion:active {
-    background-color: #388e3c; /* สีพื้นหลังเมื่อคลิก */
+    background-color: #d66d3c; /* สีพื้นหลังเมื่อคลิก */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ลดขนาดเงาเมื่อคลิก */
 }
 

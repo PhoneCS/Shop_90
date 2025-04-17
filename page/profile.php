@@ -75,6 +75,14 @@ $conn->close();
     <a href="../page/offering_information.php?user_id=<?php echo $user_id; ?>" class="user-sell-btn">
         <i class="fas fa-comment-dots"></i> เสนอขายสินค้า
     </a>
+    <?php if ($user['user_type'] == 'admin') : ?>
+    <div class="user-profile-actions">
+        <a href="../page/issue_management.php" class="user-issue-btn">
+            <i class="fas fa-inbox"></i> รับเรื่องที่แจ้งเข้ามา
+        </a>
+    </div>
+<?php endif; ?>
+
 </div>
 
     </div>
