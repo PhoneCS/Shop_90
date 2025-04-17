@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2025 at 02:25 PM
+-- Generation Time: Apr 17, 2025 at 10:26 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -85,6 +85,35 @@ INSERT INTO `categories` (`category_id`, `category_name`, `category_image`) VALU
 (4, 'ของใช้', 'p70.jpg'),
 (5, 'ของเล่น', '07.jpg'),
 (6, 'อื่นๆ', '08.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `complaints`
+--
+
+CREATE TABLE `complaints` (
+  `complaint_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `status` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `complaints`
+--
+
+INSERT INTO `complaints` (`complaint_id`, `user_id`, `title`, `description`, `created_at`, `updated_at`, `status`) VALUES
+(1, 2, '11', '11', '2025-04-17 13:20:20', '2025-04-17 14:12:42', 'y'),
+(4, 1, 'ข้อความจาก phone (หน้า Contact Us)', 'อีเมลผู้ติดต่อ: langth0007@gmail.com\n\nข้อความ:\ndad', '2025-04-17 13:30:51', '2025-04-17 13:39:29', 'y'),
+(5, 1, 'ข้อความจาก phone (หน้า Contact Us)', 'อีเมลผู้ติดต่อ: langth0007@gmail.com\n\nข้อความ:\ndad ลองลบ', '2025-04-17 13:31:09', '2025-04-17 14:12:17', 'y'),
+(6, 1, 'ข้อความจาก phone (หน้า Contact Us)', 'อีเมลผู้ติดต่อ: langth0007@gmail.com\n\nข้อความ:\nda', '2025-04-17 13:31:22', '2025-04-17 14:13:44', 'n'),
+(7, 1, 'ข้อความจาก phone ', 'dadada', '2025-04-17 13:33:21', '2025-04-17 13:39:37', 'y'),
+(8, 1, '???? ข้อความใหม่จาก phone ', 'กฟกฟฟ', '2025-04-17 13:34:57', '2025-04-17 14:12:42', 'y'),
+(9, 1, 'ข้อความใหม่จาก phone ', 'dad', '2025-04-17 13:36:19', '2025-04-17 14:12:42', 'y');
 
 -- --------------------------------------------------------
 
@@ -369,6 +398,13 @@ ALTER TABLE `categories`
   ADD UNIQUE KEY `category_name` (`category_name`);
 
 --
+-- Indexes for table `complaints`
+--
+ALTER TABLE `complaints`
+  ADD PRIMARY KEY (`complaint_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -463,6 +499,12 @@ ALTER TABLE `categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `complaints`
+--
+ALTER TABLE `complaints`
+  MODIFY `complaint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
@@ -532,6 +574,12 @@ ALTER TABLE `users`
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+--
+-- Constraints for table `complaints`
+--
+ALTER TABLE `complaints`
+  ADD CONSTRAINT `complaints_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `orders`
