@@ -1,15 +1,30 @@
 <?php
 include('../includes/header.php');
+
+// ดึง order_id และ product_name จากตาราง products โดยเชื่อมกับ order_history
+$sql = "SELECT o.order_id, p.product_name 
+        FROM order_history o
+        JOIN products p ON o.product_id = p.product_id
+        WHERE o.status = 'รอดำเนินการ'";
+$result = $conn->query($sql);
 ?>
+
 <div class="ship-form-container">
   <h2 class="ship-form-title">อัปเดตสถานะการจัดส่ง</h2>
-  <form action="submit_shipping.php" method="POST">
+  <form action="../process/submit_shipping.php" method="POST">
     <div class="ship-form-grid">
       <!-- ฝั่งซ้าย -->
       <div class="ship-form-left">
+
+        <!-- เลือกเลขออเดอร์ -->
         <div class="ship-input-box">
-          <label for="tracking_number">เลขพัสดุ</label>
-          <input type="text" id="tracking_number" name="tracking_number" required>
+          <label for="order_id">หมายเลขพัสดุ (เลขคำสั่งซื้อ)</label>
+          <select id="order_id" name="order_id" required>
+            <option value="">-- เลือกคำสั่งซื้อ --</option>
+            <?php while ($row = $result->fetch_assoc()): ?>
+              <option value="<?= $row['order_id'] ?>">#<?= $row['order_id'] ?> (<?= $row['product_name'] ?>)</option>
+            <?php endwhile; ?>
+          </select>
         </div>
 
         <div class="ship-input-box">
@@ -45,11 +60,6 @@ include('../includes/header.php');
           <label for="product_code">รหัสสินค้า</label>
           <input type="text" id="product_code" name="product_code" required>
         </div>
-
-        <div class="ship-input-box">
-          <label for="price">ราคา (บาท)</label>
-          <input type="number" id="price" name="price" step="0.01" required>
-        </div>
       </div>
     </div>
 
@@ -59,6 +69,4 @@ include('../includes/header.php');
   </form>
 </div>
 
-<?php
-include('../includes/footer.php');
-?>
+<?php include('../includes/footer.php'); ?>

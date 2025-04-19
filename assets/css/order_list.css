@@ -18,25 +18,7 @@
     font-weight: bold;
 }
 
-.status-รอดำเนินการ {
-    background-color: #ffc107;
-    color: black;
-}
 
-.status-กำลังจัดส่ง {
-    background-color: #17a2b8;
-    color: white;
-}
-
-.status-สำเร็จ {
-    background-color: #28a745;
-    color: white;
-}
-
-.status-ยกเลิก {
-    background-color: #dc3545;
-    color: white;
-}
 .pagination .page-item.active .page-link {
     background-color: #007bff;
     border-color: #007bff;

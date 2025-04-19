@@ -57,7 +57,6 @@ include('./includes/connect.inc.php');
                             <li><a href="./page/order_list.php">รายการสั่งซื้อ</a></li>
                             <li><a href="./page/order_tracking.php">ติดตามสถานะคำสั่งซื้อ</a></li>
                             <li><a href="./page/order_history.php">ประวัติการจัดส่ง</a></li>
-                            <li><a href="#">ข้อมูลการจัดส่ง</a></li>
                             <li><a href="./page/product_status.php">อัพเดตการจัดส่ง</a></li>
                         </ul>
                     </li>

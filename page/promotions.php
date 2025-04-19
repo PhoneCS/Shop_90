@@ -54,9 +54,15 @@ if ($result->num_rows > 0) {
 
                     <div class="product-rating">
                         <?php
-                        $rating = round($product_rating);
-                        for ($i = 0; $i < 5; $i++) {
-                            echo $i < $rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+                        $rating = $product_rating;
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($rating >= $i) {
+                                echo '<i class="fas fa-star"></i>'; // เต็มดาว
+                            } elseif ($rating >= $i - 0.5) {
+                                echo '<i class="fas fa-star-half-alt"></i>'; // ครึ่งดาว
+                            } else {
+                                echo '<i class="far fa-star"></i>'; // ว่าง
+                            }
                         }
                         ?>
                     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2025 at 10:26 AM
+-- Generation Time: Apr 19, 2025 at 11:50 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -165,13 +165,15 @@ CREATE TABLE `order_history` (
 
 INSERT INTO `order_history` (`order_id`, `user_id`, `product_id`, `quantity`, `price`, `total`, `tracking_number`, `delivery_company`, `order_date`, `shipping_address`, `phone`, `status`) VALUES
 (1, 1, 17, 2, '10.00', '20.00', NULL, NULL, '2025-04-05 12:27:05', '1203/61', '0615867257', 'รอดำเนินการ'),
-(2, 1, 20, 4, '20.00', '80.00', NULL, NULL, '2025-04-05 12:27:05', '1203/61', '0615867257', 'รอดำเนินการ'),
-(3, 1, 21, 1, '120.00', '120.00', NULL, NULL, '2025-04-05 12:27:05', '1203/61', '0615867257', 'รอดำเนินการ'),
-(4, 2, 16, 2, '50.00', '100.00', NULL, NULL, '2025-04-05 12:32:26', '1203/61', '0615867257', 'รอดำเนินการ'),
+(2, 1, 20, 4, '20.00', '80.00', NULL, NULL, '2025-04-05 12:27:05', '1203/61', '0615867257', 'จัดส่งแล้ว'),
+(3, 1, 21, 1, '120.00', '120.00', '25555', 'Flash Express', '2025-04-04 00:00:00', '1203/64', '0615867257', 'จัดส่งแล้ว'),
+(4, 2, 16, 2, '50.00', '100.00', '25555', 'Kerry Express', '2025-04-14 00:00:00', '1212', '212', 'รอดำเนินการ'),
 (5, 1, 17, 1, '10.00', '10.00', NULL, NULL, '2025-04-06 09:59:15', '1203/61', '0615867257', 'รอดำเนินการ'),
-(6, 1, 21, 3, '120.00', '360.00', NULL, NULL, '2025-04-06 09:59:15', '1203/61', '0615867257', 'รอดำเนินการ'),
+(6, 1, 21, 3, '120.00', '360.00', NULL, NULL, '2025-04-06 09:59:15', '1203/61', '0615867257', 'จัดส่งแล้ว'),
 (7, 1, 17, 6, '20.00', '120.00', NULL, NULL, '2025-04-07 14:48:00', '1203/61', '0615867257', 'รอดำเนินการ'),
-(8, 1, 16, 2, '50.00', '100.00', NULL, NULL, '2025-04-07 14:48:00', '1203/61', '0615867257', 'รอดำเนินการ');
+(8, 1, 16, 2, '50.00', '100.00', '25555', 'Flash Express', '2025-04-05 00:00:00', '41/5', '0615867257', 'จัดส่งแล้ว'),
+(9, 1, 17, 1, '20.00', '20.00', NULL, NULL, '2025-04-19 13:48:55', '1203/61', '0615867257', 'จัดส่งแล้ว'),
+(10, 2, 21, 4, '120.00', '480.00', '25555', 'Flash Express', '2025-05-02 00:00:00', '2022', '0615867257', 'จัดส่งแล้ว');
 
 -- --------------------------------------------------------
 
@@ -225,9 +227,9 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_image`, `product_image_hover`, `product_price`, `product_description`, `product_rating`, `product_stock`, `category_id`) VALUES
 (16, 'กระเป๋าสีขาว', 'product4_hover.jpeg', 'product4_1.jpg', '100.00', 'TAIDU กระเป๋าสะพายไหล่ กระเป๋าสะพายข้างวินเทจยุค 90\'s สุดเท่ วัสดุโพลีเอสเตอร์ ความจุขนาดใหญ่', '0.0', 100, '2'),
-(17, 'เสื้อยืดลายกราฟิก', 'product3_2.jpg', 'product3_hover.jpg', '90.00', 'เสื้อวินเทจยุค90  SMELLS LIKE โครตเท่(ส่งเร้ว )✅ของแท้100%', '0.0', 500, '1'),
+(17, 'เสื้อยืดลายกราฟิก', 'product3_2.jpg', 'product3_hover.jpg', '90.00', 'เสื้อวินเทจยุค90  SMELLS LIKE โครตเท่(ส่งเร้ว )✅ของแท้100%', '2.0', 500, '1'),
 (20, 'เทปเพลงครูในดวงใจ', 'f599936357c2dc7f745cf84990691192.jpg', 'birhb5.jpg', '120.00', 'เทปเพลงมือ2สภาพดีผ่านการเทสเสียงแล้วทุกม้วนก่อนลงขายคับ\r\n\r\nปกและม้วนสภาพสวย สนใจเลือกซื้อไปฟังไปสะสมกันได้เลยคาบซื้อกับเรามั่นใจได้ในคุณภาพสินค้าและบริการหลังการขาย \r\nสนใจสอบถามรายละเอียดเกี่ยวกับสินค้าแชทมาได้เลยนะค้าบ\r\nจะรีบเข้ามาตอบครับ', '0.0', 20, '3'),
-(21, 'เทปเพลงคาราบาวอัลบั้ม วณิพก', 'yd.jpg', 'ja.jpg', '120.00', 'ขายเทปเพลง เพลงเพื่อชีวิต\r\nอัลบั้ม : ‪วณิพก\r\nนักร้อง : คาราบาว\r\nคุณภาพ : มีปกเทป มีม้วนเทป ทดสอบเสียงแล้วปกติพร้อมฟัง\r\n- สินค้าได้ทำการตรวจเช็คคุณภาพของเสียงให้อยู่ในสภาพพร้อมใช้งาน\r\n- ได้ทำการซีลพลาสติกเพื่อป้องกันฝุ่น', '0.0', 20, '3'),
+(21, 'เทปเพลงคาราบาวอัลบั้ม วณิพก', 'yd.jpg', 'ja.jpg', '120.00', 'ขายเทปเพลง เพลงเพื่อชีวิต\r\nอัลบั้ม : ‪วณิพก\r\nนักร้อง : คาราบาว\r\nคุณภาพ : มีปกเทป มีม้วนเทป ทดสอบเสียงแล้วปกติพร้อมฟัง\r\n- สินค้าได้ทำการตรวจเช็คคุณภาพของเสียงให้อยู่ในสภาพพร้อมใช้งาน\r\n- ได้ทำการซีลพลาสติกเพื่อป้องกันฝุ่น', '3.0', 20, '3'),
 (22, 'เทปเพลงเพื่อชีวิต คาราบาว ชุด กินใจ', 'd3.jpg', '8k.jpg', '120.00', 'เทปคาสเซ็ท สภาพดี ตลับเทปตรงกับปกกล่องเทป\r\nเจ้าของร้านได้ตรวจดูด้วยสายตาทุกม้วน เส้นเทปไม่ขาด\r\nตัวตลับเทปไม่แตกหัก อยู่สภาพสมบูรณ์\r\nตัวกล่องเทปอาจจะมีรอยร้าว ขีดข่วนบ้างตามสภาพที่ผ่านมา\r\nเจ้าของร้านไม่มีเครื่องที่จะทดลองฟัง ทำให้ไม่สามารถรู้ได้ว่าเสียงของเพลงในเทปจะเป็นเช่นไร  แนะนำให้เก็บสะสมเท่านั้น ไม่สามารถรับรองเรื่องของคุณภาพเสียงได้ครับ', '0.0', 20, '3'),
 (23, 'เสื้อวง Kiss ปี 2010 Size S สินค้าลิขสิทธิ์แท้ 100%', 'um.jpg', 'vf.jpg', '1200.00', '	\r\nKiss ปี 2010 Size S อก 19.5“ ยาว 27” ผ้าคอตต้อน 100 เข็บคู่ ไม่มีข้าง สภาพ 100% ป้ายคอ Ten', '0.0', 5, '1'),
 (24, 'เสื้อวง AC-DC ลิขสิทธิ์แท้100%', 'l4.jpg', '2x.jpg', '1100.00', 'เสื้อวง AC-DC ลิขสิทธิ์แท้100%\r\n\r\nป้ายGildan\r\nปี 2017\r\nSize พร้อมส่ง\r\nS อก18”ความยาว28”\r\nM อก20”ความยาว29”\r\nL อก22”ความยาว30”\r\nXl อก24”ความยาว31”', '0.0', 5, '1'),
@@ -300,6 +302,30 @@ INSERT INTO `product_discounts` (`discount_id`, `product_id`, `discount_percenta
 (1, 17, 77.7778, 20, '2025-04-03 06:58:35'),
 (5, 16, 50, 50, '2025-04-03 07:40:31'),
 (6, 20, 83.3333, 20, '2025-04-03 07:40:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_ratings`
+--
+
+CREATE TABLE `product_ratings` (
+  `rating_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rating` float NOT NULL CHECK (`rating` >= 1 and `rating` <= 5),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `order_id` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_ratings`
+--
+
+INSERT INTO `product_ratings` (`rating_id`, `product_id`, `user_id`, `rating`, `created_at`, `order_id`) VALUES
+(14, 17, 1, 2, '2025-04-19 09:19:04', 9),
+(16, 17, 1, 2, '2025-04-19 09:31:56', 1),
+(17, 21, 2, 3, '2025-04-19 09:43:55', 10);
 
 -- --------------------------------------------------------
 
@@ -455,6 +481,14 @@ ALTER TABLE `product_discounts`
   ADD KEY `product_id` (`product_id`);
 
 --
+-- Indexes for table `product_ratings`
+--
+ALTER TABLE `product_ratings`
+  ADD PRIMARY KEY (`rating_id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `sell_offers`
 --
 ALTER TABLE `sell_offers`
@@ -490,7 +524,7 @@ ALTER TABLE `articles`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -514,7 +548,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `order_history`
 --
 ALTER TABLE `order_history`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `order_items`
@@ -545,6 +579,12 @@ ALTER TABLE `product_detail`
 --
 ALTER TABLE `product_discounts`
   MODIFY `discount_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `product_ratings`
+--
+ALTER TABLE `product_ratings`
+  MODIFY `rating_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `sell_offers`
@@ -617,6 +657,13 @@ ALTER TABLE `product_detail`
 --
 ALTER TABLE `product_discounts`
   ADD CONSTRAINT `product_discounts_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+--
+-- Constraints for table `product_ratings`
+--
+ALTER TABLE `product_ratings`
+  ADD CONSTRAINT `product_ratings_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `product_ratings_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `shipping`

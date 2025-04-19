@@ -2,13 +2,15 @@
 include('./includes/headerIndex.php');
 
 // ดึงข้อมูลสินค้าทั่วไป
-$sql = "SELECT p.*, d.discounted_price 
+$sql = "SELECT p.*, d.discounted_price, 
+               (SELECT AVG(rating) FROM product_ratings r WHERE r.product_id = p.product_id) AS avg_rating
         FROM products p
         LEFT JOIN product_discounts d ON p.product_id = d.product_id";
 $result = $conn->query($sql);
 
 // ดึงข้อมูลสินค้าลดราคา
-$sql_discounted = "SELECT p.*, d.discounted_price 
+$sql_discounted = "SELECT p.*, d.discounted_price, 
+                           (SELECT AVG(rating) FROM product_ratings r WHERE r.product_id = p.product_id) AS avg_rating
                    FROM products p
                    INNER JOIN product_discounts d ON p.product_id = d.product_id";
 $result_discounted = $conn->query($sql_discounted);
@@ -37,7 +39,8 @@ $result_categories = $conn->query($sql_categories);
             $discounted_price = isset($row['discounted_price']) ? $row['discounted_price'] : $product_price;
             $product_image = $row['product_image'];
             $product_image_hover = $row['product_image_hover'] ?? 'default-hover-image.jpg';
-            $product_rating = $row['product_rating'];
+            $product_rating = round($row['avg_rating'], 2); // สมมุติว่าใช้ AVG จาก SQL
+            $rounded_rating = round($product_rating, 0, PHP_ROUND_HALF_UP);
 
             $discount_percentage = ($product_price > $discounted_price) 
                 ? (($product_price - $discounted_price) / $product_price) * 100 
@@ -47,25 +50,33 @@ $result_categories = $conn->query($sql_categories);
             <a class="textProduct" href="./page/product-details.php?product_id=<?= $product_id; ?>">
                 <div class="product-img">
                     <img src="./assets/image/<?= $product_image; ?>" alt="<?= $product_name; ?>">
-                    <img src="./assets/image/<?= $product_image_hover; ?>" alt="<?= $product_name; ?>" class="hover-image">
+                    <img src="./assets/image/<?= $product_image_hover; ?>" alt="<?= $product_name; ?>"
+                        class="hover-image">
                     <?php if ($discount_percentage > 0) { ?>
-                        <div class="discount-tag">ลด <?= number_format($discount_percentage, 0); ?>%</div>
+                    <div class="discount-tag">ลด <?= number_format($discount_percentage, 0); ?>%</div>
                     <?php } ?>
                 </div>
                 <div class="product-info">
                     <h3 class="product-title"><?= $product_name; ?></h3>
                     <div class="product-price">
                         <?php if ($discount_percentage > 0) { ?>
-                            <span class="original-price"><s>฿<?= number_format($product_price, 2); ?></s></span>
-                            <span class="discount-price">฿<?= number_format($discounted_price, 2); ?></span>
+                        <span class="original-price"><s>฿<?= number_format($product_price, 2); ?></s></span>
+                        <span class="discount-price">฿<?= number_format($discounted_price, 2); ?></span>
                         <?php } else { ?>
-                            <span class="discount-price">฿<?= number_format($product_price, 2); ?></span>
+                        <span class="discount-price">฿<?= number_format($product_price, 2); ?></span>
                         <?php } ?>
                     </div>
                     <div class="product-rating">
                         <?php
-                        for ($i = 0; $i < 5; $i++) {
-                            echo $i < round($product_rating) ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+                        $rating = $row['product_rating'];
+                        for ($i = 1; $i <= 5; $i++) {
+                            if ($rating >= $i) {
+                                echo '<i class="fas fa-star"></i>'; // เต็มดาว
+                            } elseif ($rating >= $i - 0.5) {
+                                echo '<i class="fas fa-star-half-alt"></i>'; // ครึ่งดาว
+                            } else {
+                                echo '<i class="far fa-star"></i>'; // ว่าง
+                            }
                         }
                         ?>
                     </div>
@@ -100,7 +111,8 @@ $result_categories = $conn->query($sql_categories);
             <a class="textProduct" href="./page/product-details.php?product_id=<?= $product_id; ?>">
                 <div class="product-img">
                     <img src="./assets/image/<?= $product_image; ?>" alt="<?= $product_name; ?>">
-                    <img src="./assets/image/<?= $product_image_hover; ?>" alt="<?= $product_name; ?>" class="hover-image">
+                    <img src="./assets/image/<?= $product_image_hover; ?>" alt="<?= $product_name; ?>"
+                        class="hover-image">
                     <div class="discount-tag">ลด <?= number_format($discount_percentage, 0); ?>%</div>
                 </div>
                 <div class="product-info">
@@ -111,10 +123,17 @@ $result_categories = $conn->query($sql_categories);
                     </div>
                     <div class="product-rating">
                         <?php
-                        for ($i = 0; $i < 5; $i++) {
-                            echo $i < round($product_rating) ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
-                        }
-                        ?>
+                            $rating = $row['product_rating'];
+                            for ($i = 1; $i <= 5; $i++) {
+                                if ($rating >= $i) {
+                                    echo '<i class="fas fa-star"></i>'; // เต็มดาว
+                                } elseif ($rating >= $i - 0.5) {
+                                    echo '<i class="fas fa-star-half-alt"></i>'; // ครึ่งดาว
+                                } else {
+                                    echo '<i class="far fa-star"></i>'; // ว่าง
+                                }
+                            }
+                            ?>
                     </div>
                 </div>
             </a>

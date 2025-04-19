@@ -2,7 +2,7 @@
 include('../includes/header.php');
 $user_id = $_SESSION['user_id'];
 
-// สร้างคำสั่ง SQL
+// สร้างคำสั่ง SQL สำหรับดึงข้อมูลการสั่งซื้อ
 $query = "SELECT oh.*, p.product_name, p.product_image
           FROM order_history oh
           JOIN products p ON oh.product_id = p.product_id
@@ -13,7 +13,6 @@ $query = "SELECT oh.*, p.product_name, p.product_image
 $result = mysqli_query($conn, $query);
 
 if (!$result) {
-    // ถ้าคำสั่ง SQL ล้มเหลว ให้แสดงข้อความแสดงข้อผิดพลาด
     die('Query failed: ' . mysqli_error($conn));
 }
 ?>
@@ -25,7 +24,8 @@ if (!$result) {
     <div class="order-item">
         <div class="order-details">
             <div class="order-product">
-                <img src="../assets/image/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>" class="order-product-img">
+                <img src="../assets/image/<?php echo $row['product_image']; ?>"
+                    alt="<?php echo $row['product_name']; ?>" class="order-product-img">
                 <div class="order-product-info">
                     <h4><?php echo $row['product_name']; ?></h4>
                     <p>จำนวน: <?php echo $row['quantity']; ?> ชิ้น</p>
@@ -34,59 +34,112 @@ if (!$result) {
             </div>
 
             <div class="order-status">
-                <p>สถานะ: <span class="status-<?php echo strtolower($row['status']); ?>"><?php echo $row['status']; ?></span></p>
-                <p>วันที่สั่ง: <?php echo date("d/m/Y", strtotime($row['order_date'])); ?></p>
+                <p class="status-label">
+                    <span class="status-icon <?php echo strtolower($row['status']); ?>"></span>
+                    สถานะ: <span
+                        class="status-<?php echo strtolower($row['status']); ?>"><?php echo $row['status']; ?></span>
+                </p>
+                <p class="order-date">วันที่สั่ง: <?php echo date("d/m/Y", strtotime($row['order_date'])); ?></p>
             </div>
+
         </div>
 
         <!-- การให้คะแนนสินค้า -->
         <div class="rating-section">
+            <?php
+            // เช็คสถานะการจัดส่ง
+            if ($row['status'] == 'จัดส่งแล้ว') {
+                // ดึงข้อมูลการให้คะแนนจากฐานข้อมูลสำหรับสินค้านี้
+                $rating_query = "SELECT rating FROM product_ratings WHERE user_id = '$user_id' AND product_id = '{$row['product_id']}' AND order_id = '{$row['order_id']}' LIMIT 1";
+                $rating_result = mysqli_query($conn, $rating_query);
+                $rating = mysqli_fetch_assoc($rating_result)['rating'] ?? 0; // กำหนดเป็น 0 หากไม่มีข้อมูลการให้คะแนน
+            ?>
+
+            <?php if ($rating > 0): ?>
+            <!-- แสดงข้อความว่าให้คะแนนแล้ว -->
+            <p>ให้คะแนนแล้ว: <?php echo $rating; ?> ดาว</p>
+            <?php else: ?>
+            <!-- แสดงปุ่มให้คะแนน -->
             <label for="rating-<?php echo $row['order_id']; ?>">ให้คะแนนสินค้า: </label>
-            <div class="rating-stars" id="rating-<?php echo $row['order_id']; ?>">
+            <div class="rating-stars" data-product-id="<?php echo $row['product_id']; ?>"
+                id="rating-<?php echo $row['order_id']; ?>">
                 <span class="star" data-value="1">&#9733;</span>
                 <span class="star" data-value="2">&#9733;</span>
                 <span class="star" data-value="3">&#9733;</span>
                 <span class="star" data-value="4">&#9733;</span>
                 <span class="star" data-value="5">&#9733;</span>
             </div>
+            <?php endif; ?>
+
+            <?php } else { ?>
+            <!-- ถ้ายังไม่ได้จัดส่งสำเร็จ ให้แสดงข้อความ -->
+            <p>สถานะการจัดส่งยังไม่สำเร็จ ไม่สามารถให้คะแนนได้</p>
+            <?php } ?>
+
+            <script>
+            // เพิ่มดาวที่ผู้ใช้เคยให้คะแนน
+            const productId = "<?php echo $row['product_id']; ?>";
+            const rating = <?php echo $rating; ?>;
+            const stars = document.querySelectorAll('#rating-<?php echo $row['order_id']; ?> .star');
+
+            stars.forEach(star => {
+                const starValue = parseInt(star.getAttribute('data-value'));
+                if (starValue <= rating) {
+                    star.classList.add('selected');
+                }
+            });
+            </script>
         </div>
+
     </div>
     <?php endwhile; ?>
 </div>
 
 <script>
-    // การให้คะแนน (ดาว) 
-    document.querySelectorAll('.rating-stars').forEach(function(starsContainer) {
-        const stars = starsContainer.querySelectorAll('.star');
-        stars.forEach(function(star) {
-            star.addEventListener('click', function() {
-                const rating = this.getAttribute('data-value');
-                // แสดงดาวที่ถูกเลือก
-                stars.forEach(function(s) {
-                    if (s.getAttribute('data-value') <= rating) {
-                        s.classList.add('selected');
-                    } else {
-                        s.classList.remove('selected');
-                    }
-                });
+document.querySelectorAll('.rating-stars').forEach(function(starsContainer) {
+    const stars = starsContainer.querySelectorAll('.star');
+    const orderId = starsContainer.getAttribute('id').replace('rating-',
+    ''); // ดึง order_id จาก id ของ starsContainer
+    const productId = starsContainer.getAttribute('data-product-id'); // ดึง product_id จาก data attribute
 
-                // ส่งข้อมูลการให้คะแนนไปยังฐานข้อมูล
-                const order_id = starsContainer.id.split('-')[1];  // ดึง order_id จาก id ของ container
-                fetch('submit_rating.php', {
-                    method: 'POST',
-                    body: JSON.stringify({ order_id, rating }),
-                    headers: { 'Content-Type': 'application/json' }
-                }).then(response => response.json())
-                  .then(data => {
-                      if (data.success) {
-                          alert('ขอบคุณสำหรับการให้คะแนน!');
-                      }
-                  }).catch(err => alert('เกิดข้อผิดพลาดในการส่งข้อมูล'));
+    stars.forEach(function(star) {
+        star.addEventListener('click', function() {
+            // ค่าคะแนนที่เลือก
+            const rating = (this.getAttribute('data-value') * 1.0).toFixed(
+            1); // ทำให้เป็นทศนิยม 1 ตำแหน่ง
+            console.log("ส่งข้อมูล: order_id = " + orderId + ", product_id = " + productId +
+                ", rating = " + rating); // เพิ่มการแสดงค่าที่ส่งไป
+
+            // แสดงดาวที่ถูกเลือก
+            stars.forEach(function(s) {
+                s.classList.toggle('selected', s.getAttribute('data-value') <= rating);
             });
+
+            // ส่งข้อมูลการให้คะแนนไปยังฐานข้อมูล
+            fetch('../process/submit_rating.php', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        order_id: orderId, // ส่ง order_id
+                        product_id: productId, // ส่ง product_id
+                        rating: rating // ส่งเป็นทศนิยม
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('ขอบคุณสำหรับการให้คะแนน!');
+                    } else {
+                        alert('ไม่สามารถบันทึกการให้คะแนนได้: ' + data.error);
+                    }
+                }).catch(err => {
+                    console.error('เกิดข้อผิดพลาดในการส่งข้อมูล:', err);
+                    alert('เกิดข้อผิดพลาดในการส่งข้อมูล');
+                });
         });
     });
+});
 </script>
 
 <?php include('../includes/footer.php'); ?>
-
-
