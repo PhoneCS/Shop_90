@@ -27,17 +27,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("i", $complaint_id);
         $stmt->execute();
 
+        
         if ($stmt->affected_rows > 0) {
-            echo "<script>
-                alert('สถานะถูกเปลี่ยนเรียบร้อยแล้ว');
-                window.location.href = '../page/issue_management.php';
+            echo "
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'สำเร็จ',
+                        text: 'ลบข้อมูลเรียบร้อยแล้ว',
+                        confirmButtonText: 'ตกลง'
+                    }).then(() => {
+                        window.location.href = '../page/issue_management.php';
+                    });
+                });
             </script>";
         } else {
-            echo "<script>
-                alert('ไม่สามารถเปลี่ยนสถานะได้ อาจจะถูกเปลี่ยนไปแล้ว หรือ complaint_id ไม่ตรง');
-                window.location.href = '../page/issue_management.php';
+            echo "
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'ไม่สามารถเปลี่ยนสถานะได้',
+                        text: 'อาจจะถูกเปลี่ยนไปแล้ว หรือ complaint_id ไม่ตรง',
+                        confirmButtonText: 'ตกลง'
+                    }).then(() => {
+                        window.location.href = '../page/issue_management.php';
+                    });
+                });
             </script>";
         }
+        
+        
 
         $stmt->close();
     } else {

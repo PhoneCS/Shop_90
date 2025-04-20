@@ -108,7 +108,25 @@ document.addEventListener('DOMContentLoaded', function() {
             const productId = this.getAttribute('data-product-id');
             const productName = this.getAttribute('data-product-name');
             const productStock = parseInt(this.getAttribute('data-product-stock'));
+            const isLoggedIn = this.getAttribute('data-is-logged-in') === '1'; // เช็คสถานะการล็อกอิน
             
+            // ถ้ายังไม่ได้ล็อกอิน
+            if (!isLoggedIn) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'กรุณาเข้าสู่ระบบ',
+                    text: 'คุณต้องเข้าสู่ระบบก่อนจึงจะสามารถเพิ่มสินค้าได้',
+                    confirmButtonText: 'เข้าสู่ระบบ',
+                    confirmButtonColor: '#3085d6'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // เมื่อผู้ใช้คลิกเข้าสู่ระบบ จะพาไปหน้า login
+                        window.location.href = '../auth/login.php';
+                    }
+                });
+                return; // ยกเลิกการทำงานต่อไป
+            }
+
             // ดึงค่าจำนวนจาก input ถ้ามีการกำหนดจำนวน
             let quantity = parseInt(document.getElementById('productQuantity') ? document.getElementById('productQuantity').value : 1);
             
@@ -171,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     // สคริปต์สำหรับปุ่ม "เพิ่มลงตะกร้า"
-    const addToCartButtons = document.querySelectorAll('.btn-add-to-cart-product');
+    const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
     
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -181,7 +199,25 @@ document.addEventListener('DOMContentLoaded', function() {
             const productId = this.getAttribute('data-product-id');
             const productName = this.getAttribute('data-product-name');
             const productStock = parseInt(this.getAttribute('data-product-stock'));
+            const isLoggedIn = this.getAttribute('data-is-logged-in') === '1'; // เช็คสถานะการล็อกอิน
             
+            // ถ้ายังไม่ได้ล็อกอิน
+            if (!isLoggedIn) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'กรุณาเข้าสู่ระบบ',
+                    text: 'คุณต้องเข้าสู่ระบบก่อนจึงจะสามารถเพิ่มสินค้าได้',
+                    confirmButtonText: 'เข้าสู่ระบบ',
+                    confirmButtonColor: '#3085d6'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // เมื่อผู้ใช้คลิกเข้าสู่ระบบ จะพาไปหน้า login
+                        window.location.href = './auth/login.php';
+                    }
+                });
+                return; // ยกเลิกการทำงานต่อไป
+            }
+
             // ดึงค่าจำนวนจาก input ถ้ามีการกำหนดจำนวน
             let quantity = parseInt(document.getElementById('productQuantity') ? document.getElementById('productQuantity').value : 1);
             
@@ -238,13 +274,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
 // ปุ่มลบ
 function removeItem(productId) {
-    // ส่งคำขอแบบ GET ไปยัง remove.php เพื่อลบสินค้าจากตะกร้า
-    if (confirm("คุณต้องการลบสินค้านี้จากตะกร้า?")) {
-        window.location.href = '../process/remove.php?product_id=' + productId;
-    }
+    Swal.fire({
+        title: 'คุณแน่ใจหรือไม่?',
+        text: 'คุณต้องการลบสินค้านี้ออกจากตะกร้าใช่หรือไม่?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'ใช่, ลบเลย',
+        cancelButtonText: 'ยกเลิก'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // ถ้าผู้ใช้ยืนยัน -> ไปยัง remove.php พร้อมส่ง product_id
+            window.location.href = '../process/remove.php?product_id=' + productId;
+        }
+    });
 }
+
 
 function updateQuantity(action, productId) {
     var quantityInput = document.getElementById('quantity-' + productId);

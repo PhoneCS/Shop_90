@@ -1,0 +1,7 @@
+.custom-card:hover .custom-img-main {
+    opacity: 0;
+}
+
+.custom-card:hover .custom-img-hover {
+    opacity: 1;
+}

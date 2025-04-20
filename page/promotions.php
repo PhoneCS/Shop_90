@@ -1,6 +1,6 @@
 <?php
 include('../includes/header.php');  // รวมไฟล์เชื่อมต่อฐานข้อมูล
-
+$is_logged_in = isset($_SESSION['user_id']);  // ตรวจสอบว่า user ได้ล็อกอินแล้วหรือยัง
 // ดึงข้อมูลสินค้าที่มีโปรโมชั่น
 $sql = "SELECT p.*, d.discounted_price 
         FROM products p
@@ -68,7 +68,11 @@ if ($result->num_rows > 0) {
                     </div>
                 </div>
             </a>
-            <button class="btn-add-to-cart-product" data-product-name="<?= $product_name; ?>" data-product-id="<?= $product_id; ?>">เพิ่มลงตะกร้า</button>
+            <button class="btn-add-to-cart-product" 
+                data-product-name="<?= $row['product_name']; ?>" 
+                data-product-id="<?= $row['product_id']; ?>"
+                data-product-stock="1"
+                data-is-logged-in="<?= $is_logged_in ? '1' : '0' ?>">เพิ่มลงตะกร้า</button>
         </div>
 
         <?php

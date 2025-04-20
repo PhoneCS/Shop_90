@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2025 at 11:50 AM
+-- Generation Time: Apr 20, 2025 at 09:01 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -44,7 +44,10 @@ INSERT INTO `articles` (`id`, `title`, `content`, `created_at`, `updated_at`, `i
 (1, 'เสื้อผ้า', 'เนื้อห\r\n', '2025-03-28 04:37:13', '2025-03-28 04:50:13', 'product3_hover_1.jpg'),
 (2, 'dd', 'dd', '2025-03-28 04:46:51', '2025-03-28 04:46:51', 'product3_2.jpg'),
 (3, 'กระเป๋า', 'สวยมาก2', '2025-03-28 04:50:31', '2025-03-30 00:00:05', 'product4_hover.jpeg'),
-(4, 'vdvevev', 'fgbrwberv', '2025-03-29 07:11:45', '2025-03-29 07:12:12', 'product7.jpeg');
+(4, 'vdvevev', 'กฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหก', '2025-03-29 07:11:45', '2025-04-20 05:21:11', 'boss.png'),
+(5, 'ก', 'กฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหกกฟหกฟหกหฟกฟหกฟหก', '2025-04-20 05:00:41', '2025-04-20 05:27:26', 'product7.jpeg'),
+(6, 'กฟ', 'กฟ', '2025-04-20 05:29:16', '2025-04-20 05:34:10', 'boss.png'),
+(7, 'กฟ', 'กฟ', '2025-04-20 05:34:17', '2025-04-20 05:34:17', 'cart.jpg');
 
 -- --------------------------------------------------------
 
@@ -62,6 +65,15 @@ CREATE TABLE `cart` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` enum('y','n','','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `price`, `quantity`, `created_at`, `updated_at`, `status`) VALUES
+(72, 1, 17, '20.00', 1, '2025-04-19 23:17:47', '2025-04-19 23:17:47', 'y'),
+(73, 2, 17, '20.00', 1, '2025-04-19 23:20:10', '2025-04-19 23:20:10', 'y'),
+(76, 1, 16, '50.00', 5, '2025-04-20 02:00:13', '2025-04-20 02:00:19', 'y');
 
 -- --------------------------------------------------------
 
@@ -107,13 +119,16 @@ CREATE TABLE `complaints` (
 --
 
 INSERT INTO `complaints` (`complaint_id`, `user_id`, `title`, `description`, `created_at`, `updated_at`, `status`) VALUES
-(1, 2, '11', '11', '2025-04-17 13:20:20', '2025-04-17 14:12:42', 'y'),
+(1, 2, '11', '11', '2025-04-17 13:20:20', '2025-04-20 13:03:48', 'n'),
 (4, 1, 'ข้อความจาก phone (หน้า Contact Us)', 'อีเมลผู้ติดต่อ: langth0007@gmail.com\n\nข้อความ:\ndad', '2025-04-17 13:30:51', '2025-04-17 13:39:29', 'y'),
 (5, 1, 'ข้อความจาก phone (หน้า Contact Us)', 'อีเมลผู้ติดต่อ: langth0007@gmail.com\n\nข้อความ:\ndad ลองลบ', '2025-04-17 13:31:09', '2025-04-17 14:12:17', 'y'),
 (6, 1, 'ข้อความจาก phone (หน้า Contact Us)', 'อีเมลผู้ติดต่อ: langth0007@gmail.com\n\nข้อความ:\nda', '2025-04-17 13:31:22', '2025-04-17 14:13:44', 'n'),
 (7, 1, 'ข้อความจาก phone ', 'dadada', '2025-04-17 13:33:21', '2025-04-17 13:39:37', 'y'),
 (8, 1, '???? ข้อความใหม่จาก phone ', 'กฟกฟฟ', '2025-04-17 13:34:57', '2025-04-17 14:12:42', 'y'),
-(9, 1, 'ข้อความใหม่จาก phone ', 'dad', '2025-04-17 13:36:19', '2025-04-17 14:12:42', 'y');
+(9, 1, 'ข้อความใหม่จาก phone ', 'dad', '2025-04-17 13:36:19', '2025-04-20 13:05:31', 'n'),
+(10, 1, 'ข้อความใหม่จาก phone ', '122', '2025-04-20 13:00:34', '2025-04-20 13:03:38', 'y'),
+(11, 1, 'ข้อความใหม่จาก phone ', '111', '2025-04-20 13:01:42', '2025-04-20 13:07:45', 'n'),
+(12, 1, 'ข้อความใหม่จาก phone ', 'กฟ', '2025-04-20 13:03:27', '2025-04-20 13:07:21', 'n');
 
 -- --------------------------------------------------------
 
@@ -164,44 +179,18 @@ CREATE TABLE `order_history` (
 --
 
 INSERT INTO `order_history` (`order_id`, `user_id`, `product_id`, `quantity`, `price`, `total`, `tracking_number`, `delivery_company`, `order_date`, `shipping_address`, `phone`, `status`) VALUES
-(1, 1, 17, 2, '10.00', '20.00', NULL, NULL, '2025-04-05 12:27:05', '1203/61', '0615867257', 'รอดำเนินการ'),
+(1, 1, 17, 2, '10.00', '20.00', '25555', 'Kerry Express', '2025-04-04 00:00:00', '25', '25', 'กำลังจัดส่ง'),
 (2, 1, 20, 4, '20.00', '80.00', NULL, NULL, '2025-04-05 12:27:05', '1203/61', '0615867257', 'จัดส่งแล้ว'),
 (3, 1, 21, 1, '120.00', '120.00', '25555', 'Flash Express', '2025-04-04 00:00:00', '1203/64', '0615867257', 'จัดส่งแล้ว'),
-(4, 2, 16, 2, '50.00', '100.00', '25555', 'Kerry Express', '2025-04-14 00:00:00', '1212', '212', 'รอดำเนินการ'),
-(5, 1, 17, 1, '10.00', '10.00', NULL, NULL, '2025-04-06 09:59:15', '1203/61', '0615867257', 'รอดำเนินการ'),
+(4, 2, 16, 2, '50.00', '100.00', '25555', 'Kerry Express', '2025-04-14 00:00:00', '1212', '212', 'กำลังจัดส่ง'),
+(5, 1, 17, 1, '10.00', '10.00', '25555', 'Kerry Express', '2025-04-06 09:59:15', '1203/61', '0615867257', 'กำลังจัดส่ง'),
 (6, 1, 21, 3, '120.00', '360.00', NULL, NULL, '2025-04-06 09:59:15', '1203/61', '0615867257', 'จัดส่งแล้ว'),
 (7, 1, 17, 6, '20.00', '120.00', NULL, NULL, '2025-04-07 14:48:00', '1203/61', '0615867257', 'รอดำเนินการ'),
 (8, 1, 16, 2, '50.00', '100.00', '25555', 'Flash Express', '2025-04-05 00:00:00', '41/5', '0615867257', 'จัดส่งแล้ว'),
 (9, 1, 17, 1, '20.00', '20.00', NULL, NULL, '2025-04-19 13:48:55', '1203/61', '0615867257', 'จัดส่งแล้ว'),
-(10, 2, 21, 4, '120.00', '480.00', '25555', 'Flash Express', '2025-05-02 00:00:00', '2022', '0615867257', 'จัดส่งแล้ว');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_items`
---
-
-CREATE TABLE `order_items` (
-  `order_item_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `subtotal` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payments`
---
-
-CREATE TABLE `payments` (
-  `payment_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `payment_method` enum('credit_card','paypal','bank_transfer') NOT NULL,
-  `payment_status` enum('pending','completed','failed') NOT NULL DEFAULT 'pending',
-  `paid_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(10, 2, 21, 4, '120.00', '480.00', '25555', 'Flash Express', '2025-05-02 00:00:00', '2022', '0615867257', 'จัดส่งแล้ว'),
+(11, 1, 17, 1, '20.00', '20.00', NULL, NULL, '2025-04-20 11:09:13', '1203/61', '0615867257', 'รอดำเนินการ'),
+(12, 1, 16, 1, '50.00', '50.00', NULL, NULL, '2025-04-20 11:09:13', '1203/61', '0615867257', 'รอดำเนินการ');
 
 -- --------------------------------------------------------
 
@@ -226,10 +215,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_image`, `product_image_hover`, `product_price`, `product_description`, `product_rating`, `product_stock`, `category_id`) VALUES
-(16, 'กระเป๋าสีขาว', 'product4_hover.jpeg', 'product4_1.jpg', '100.00', 'TAIDU กระเป๋าสะพายไหล่ กระเป๋าสะพายข้างวินเทจยุค 90\'s สุดเท่ วัสดุโพลีเอสเตอร์ ความจุขนาดใหญ่', '0.0', 100, '2'),
+(16, 'กระเป๋าสีขาว', 'product4_hover.jpeg', 'product4_1.jpg', '100.00', 'TAIDU กระเป๋าสะพายไหล่ กระเป๋าสะพายข้างวินเทจยุค 90\'s สุดเท่ วัสดุโพลีเอสเตอร์ ความจุขนาดใหญ่', '2.5', 100, '2'),
 (17, 'เสื้อยืดลายกราฟิก', 'product3_2.jpg', 'product3_hover.jpg', '90.00', 'เสื้อวินเทจยุค90  SMELLS LIKE โครตเท่(ส่งเร้ว )✅ของแท้100%', '2.0', 500, '1'),
-(20, 'เทปเพลงครูในดวงใจ', 'f599936357c2dc7f745cf84990691192.jpg', 'birhb5.jpg', '120.00', 'เทปเพลงมือ2สภาพดีผ่านการเทสเสียงแล้วทุกม้วนก่อนลงขายคับ\r\n\r\nปกและม้วนสภาพสวย สนใจเลือกซื้อไปฟังไปสะสมกันได้เลยคาบซื้อกับเรามั่นใจได้ในคุณภาพสินค้าและบริการหลังการขาย \r\nสนใจสอบถามรายละเอียดเกี่ยวกับสินค้าแชทมาได้เลยนะค้าบ\r\nจะรีบเข้ามาตอบครับ', '0.0', 20, '3'),
-(21, 'เทปเพลงคาราบาวอัลบั้ม วณิพก', 'yd.jpg', 'ja.jpg', '120.00', 'ขายเทปเพลง เพลงเพื่อชีวิต\r\nอัลบั้ม : ‪วณิพก\r\nนักร้อง : คาราบาว\r\nคุณภาพ : มีปกเทป มีม้วนเทป ทดสอบเสียงแล้วปกติพร้อมฟัง\r\n- สินค้าได้ทำการตรวจเช็คคุณภาพของเสียงให้อยู่ในสภาพพร้อมใช้งาน\r\n- ได้ทำการซีลพลาสติกเพื่อป้องกันฝุ่น', '3.0', 20, '3'),
+(20, 'เทปเพลงครูในดวงใจ', 'f599936357c2dc7f745cf84990691192.jpg', 'birhb5.jpg', '120.00', 'เทปเพลงมือ2สภาพดีผ่านการเทสเสียงแล้วทุกม้วนก่อนลงขายคับ\r\n\r\nปกและม้วนสภาพสวย สนใจเลือกซื้อไปฟังไปสะสมกันได้เลยคาบซื้อกับเรามั่นใจได้ในคุณภาพสินค้าและบริการหลังการขาย \r\nสนใจสอบถามรายละเอียดเกี่ยวกับสินค้าแชทมาได้เลยนะค้าบ\r\nจะรีบเข้ามาตอบครับ', '2.0', 20, '3'),
+(21, 'เทปเพลงคาราบาวอัลบั้ม วณิพก', 'yd.jpg', 'ja.jpg', '120.00', 'ขายเทปเพลง เพลงเพื่อชีวิต\r\nอัลบั้ม : ‪วณิพก\r\nนักร้อง : คาราบาว\r\nคุณภาพ : มีปกเทป มีม้วนเทป ทดสอบเสียงแล้วปกติพร้อมฟัง\r\n- สินค้าได้ทำการตรวจเช็คคุณภาพของเสียงให้อยู่ในสภาพพร้อมใช้งาน\r\n- ได้ทำการซีลพลาสติกเพื่อป้องกันฝุ่น', '2.0', 20, '3'),
 (22, 'เทปเพลงเพื่อชีวิต คาราบาว ชุด กินใจ', 'd3.jpg', '8k.jpg', '120.00', 'เทปคาสเซ็ท สภาพดี ตลับเทปตรงกับปกกล่องเทป\r\nเจ้าของร้านได้ตรวจดูด้วยสายตาทุกม้วน เส้นเทปไม่ขาด\r\nตัวตลับเทปไม่แตกหัก อยู่สภาพสมบูรณ์\r\nตัวกล่องเทปอาจจะมีรอยร้าว ขีดข่วนบ้างตามสภาพที่ผ่านมา\r\nเจ้าของร้านไม่มีเครื่องที่จะทดลองฟัง ทำให้ไม่สามารถรู้ได้ว่าเสียงของเพลงในเทปจะเป็นเช่นไร  แนะนำให้เก็บสะสมเท่านั้น ไม่สามารถรับรองเรื่องของคุณภาพเสียงได้ครับ', '0.0', 20, '3'),
 (23, 'เสื้อวง Kiss ปี 2010 Size S สินค้าลิขสิทธิ์แท้ 100%', 'um.jpg', 'vf.jpg', '1200.00', '	\r\nKiss ปี 2010 Size S อก 19.5“ ยาว 27” ผ้าคอตต้อน 100 เข็บคู่ ไม่มีข้าง สภาพ 100% ป้ายคอ Ten', '0.0', 5, '1'),
 (24, 'เสื้อวง AC-DC ลิขสิทธิ์แท้100%', 'l4.jpg', '2x.jpg', '1100.00', 'เสื้อวง AC-DC ลิขสิทธิ์แท้100%\r\n\r\nป้ายGildan\r\nปี 2017\r\nSize พร้อมส่ง\r\nS อก18”ความยาว28”\r\nM อก20”ความยาว29”\r\nL อก22”ความยาว30”\r\nXl อก24”ความยาว31”', '0.0', 5, '1'),
@@ -241,7 +230,8 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_image`, `product_
 (30, 'จานสังกะสีเคลือบ สีขาว (แบบยกโหล)', '4g.jpg', '50.jpg', '400.00', 'จานสังกะสีเคลือบ8 (20ซม.) กระต่าย /ยกโหล 12 ใบ\r\nEnamelware เป็นเครื่องครัวแบบอเมริกันที่สร้างขึ้นในยุค 1870 ทำจากเหล็กคุณภาพสูงจากนั้นเคลือบด้วยแก้วในเตาอบที่ร้อนมาก การเคลือบ Enamel เป็นการเคลือบ ที่ทำใส่อนุภาคของแก้วลงไปบนผิวของภาชนะโลหะ ทำให้ได้ผิวที่เรียบลื้น, ไม่ติดและไม่ไม่ทำปฏิกริยากับอาหาร ภาชนะที่เคลือบ Enamel ปลอดภัยต่อสุขภาพ, สวยงาม และทนต่อความร้อนสูงได้ดี เนื่องจากเนื้อ Enamel นั้นเรียบสนิทไม่ค่อยมีรูพรุ่นทำให้ทำความสะอาดแล้วมีคราบอาหารหรือเชื้อโรคตกค้างน้อยมาก\r\nข้อด้อยของ Enamel ก็คืออาจจะกระเทาะได้ เพราะ Enamel คือการเคลือบด้วยแก้วจึงไม่ทนต่อการกระแทก แต่ถ้าได้รับการดูแลดีๆ ภาชนะเคลือบ enamel นี่จะทนชั่วลูกชั่วหลานแบบที่เราเคยเห็นคนรุ่นพ่อรุ่นแม่เราใช้แน่นอน\r\n', '0.0', 700, '4'),
 (31, 'ช้อนสังกะสี (สีเขียว แบบ โหลนึง)', '07291a63-46c6-43cb-a68a-6f378bfd5ca9.jpg', 'e8705fe0-ef3a-4a3e-a444-51d890fcace2.jpg', '300.00', 'ช้อนสังกะสี (สีเขียว) แบบบาง เป็นของเก่าเก็บ ไม่ผ่านการใช้งาน เริ่มหายากขึ้นทุกวัน มีไม่มาก', '0.0', 90, '4'),
 (32, 'เตารีดเตาถ่าน', 'S31a8a534e72f4c298ff01bec85bf5140b.jpg', 'Sb8258daacff84c83805364a38ea9e62dd.jpg', '350.00', 'เตารีดแบบโบราณ ใช้รีดผ้าของคนสมัยก่อน', '0.0', 5, '4'),
-(34, 'เสื้อยืดลายกราฟิก2', '07291a63-46c6-43cb-a68a-6f378bfd5ca9.jpg', '67e85f17b5252.jpg', '100.00', 'กฟมาd', '0.0', 1100, '1');
+(34, 'เสื้อยืดลายกราฟิก2', '07291a63-46c6-43cb-a68a-6f378bfd5ca9.jpg', '67e85f17b5252.jpg', '100.00', 'กฟมาd', '0.0', 1100, '1'),
+(39, 'ชื่อสินค้า', '463033316_8470437379703918_6538883070512336489_n (2).jpg', '462920691_8470437399703916_8220377031588916959_n.jpg', '100.00', NULL, '0.0', 55, 'ของใช้');
 
 -- --------------------------------------------------------
 
@@ -277,8 +267,7 @@ INSERT INTO `product_detail` (`product_detail_id`, `product_id`, `product_descri
 (27, 29, 'เด็กไทยที่รู้จักมานี ก็คงต้องรู้จักหมากฝรั่งแมวดำอันนี้เป็นแน่แท้ แม้ว่าเราจะห่างกับมานีมานะมาเเล้วแสนไกล แต่รู้หรือไม่ อีบุหรี่แมวดำนี่ก็ยังผลิตมาอย่างต่อเนื่อง ไม่เชื่อก็ดูวันหมดอายุสิ', NULL, '-', 0),
 (28, 30, 'จานสังกะสีเคลือบ8 (20ซม.) กระต่าย /ยกโหล 12 ใบ\r\nEnamelware เป็นเครื่องครัวแบบอเมริกันที่สร้างขึ้นในยุค 1870 ทำจากเหล็กคุณภาพสูงจากนั้นเคลือบด้วยแก้วในเตาอบที่ร้อนมาก การเคลือบ Enamel เป็นการเคลือบ ที่ทำใส่อนุภาคของแก้วลงไปบนผิวของภาชนะโลหะ ทำให้ได้ผิวที่เรียบลื้น, ไม่ติดและไม่ไม่ทำปฏิกริยากับอาหาร ภาชนะที่เคลือบ Enamel ปลอดภัยต่อสุขภาพ, สวยงาม และทนต่อความร้อนสูงได้ดี เนื่องจากเนื้อ Enamel นั้นเรียบสนิทไม่ค่อยมีรูพรุ่นทำให้ทำความสะอาดแล้วมีคราบอาหารหรือเชื้อโรคตกค้างน้อยมาก\r\nข้อด้อยของ Enamel ก็คืออาจจะกระเทาะได้ เพราะ Enamel คือการเคลือบด้วยแก้วจึงไม่ทนต่อการกระแทก แต่ถ้าได้รับการดูแลดีๆ ภาชนะเคลือบ enamel นี่จะทนชั่วลูกชั่วหลานแบบที่เราเคยเห็นคนรุ่นพ่อรุ่นแม่เราใช้แน่นอน\r\n', NULL, '-', 0),
 (29, 31, 'ช้อนสังกะสี (สีเขียว) แบบบาง เป็นของเก่าเก็บ ไม่ผ่านการใช้งาน เริ่มหายากขึ้นทุกวัน มีไม่มาก', NULL, '-', 0),
-(30, 32, 'เตารีดแบบโบราณ ใช้รีดผ้าของคนสมัยก่อน', NULL, '-', 0),
-(32, 34, 'กฟมาd', NULL, 'ฟก', 0);
+(30, 32, 'เตารีดแบบโบราณ ใช้รีดผ้าของคนสมัยก่อน', NULL, '-', 0);
 
 -- --------------------------------------------------------
 
@@ -301,7 +290,10 @@ CREATE TABLE `product_discounts` (
 INSERT INTO `product_discounts` (`discount_id`, `product_id`, `discount_percentage`, `discounted_price`, `discount_date`) VALUES
 (1, 17, 77.7778, 20, '2025-04-03 06:58:35'),
 (5, 16, 50, 50, '2025-04-03 07:40:31'),
-(6, 20, 83.3333, 20, '2025-04-03 07:40:44');
+(6, 20, 58.3333, 50, '2025-04-03 07:40:44'),
+(8, 21, 83.3333, 20, '2025-04-20 04:57:03'),
+(9, 26, 86.8421, 2000, '2025-04-20 04:57:21'),
+(10, 39, 50, 50, '2025-04-20 05:00:03');
 
 -- --------------------------------------------------------
 
@@ -325,7 +317,11 @@ CREATE TABLE `product_ratings` (
 INSERT INTO `product_ratings` (`rating_id`, `product_id`, `user_id`, `rating`, `created_at`, `order_id`) VALUES
 (14, 17, 1, 2, '2025-04-19 09:19:04', 9),
 (16, 17, 1, 2, '2025-04-19 09:31:56', 1),
-(17, 21, 2, 3, '2025-04-19 09:43:55', 10);
+(17, 21, 2, 3, '2025-04-19 09:43:55', 10),
+(18, 21, 1, 1, '2025-04-20 03:35:47', 6),
+(19, 20, 1, 2, '2025-04-20 04:05:00', 2),
+(20, 20, 1, 2, '2025-04-20 04:05:43', 2),
+(21, 16, 1, 2, '2025-04-20 04:06:02', 8);
 
 -- --------------------------------------------------------
 
@@ -335,37 +331,27 @@ INSERT INTO `product_ratings` (`rating_id`, `product_id`, `user_id`, `rating`, `
 
 CREATE TABLE `sell_offers` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
-  `phone` varchar(20) NOT NULL,
+  `product_name` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `image_path` varchar(255) NOT NULL,
-  `details` text DEFAULT NULL,
+  `product_image` varchar(255) NOT NULL,
+  `product_description` text DEFAULT NULL,
   `submitted_at` datetime DEFAULT current_timestamp(),
-  `user_id` int(255) NOT NULL
+  `user_id` int(255) NOT NULL,
+  `sell_offers_status` int(2) NOT NULL,
+  `product_price` decimal(10,2) NOT NULL,
+  `product_stock` int(255) NOT NULL,
+  `category_id` int(2) NOT NULL,
+  `product_image_hover` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sell_offers`
 --
 
-INSERT INTO `sell_offers` (`id`, `first_name`, `last_name`, `phone`, `email`, `image_path`, `details`, `submitted_at`, `user_id`) VALUES
-(4, 'EaRth', 'lele', '0615867257', 'akhri22@gmail.com', '1744012206_asmr26.png', '', '2025-04-07 14:50:06', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `shipping`
---
-
-CREATE TABLE `shipping` (
-  `shipping_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `tracking_number` varchar(50) DEFAULT NULL,
-  `carrier` varchar(255) DEFAULT NULL,
-  `status` enum('preparing','shipped','delivered') NOT NULL DEFAULT 'preparing',
-  `shipped_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `sell_offers` (`id`, `product_name`, `email`, `product_image`, `product_description`, `submitted_at`, `user_id`, `sell_offers_status`, `product_price`, `product_stock`, `category_id`, `product_image_hover`) VALUES
+(11, 'dasdasd', 'langth0007@gmail.com', '1745130601_boss.png', '47', '2025-04-20 13:30:01', 1, 1, '100.00', 25, 1, ''),
+(12, 'ชื่อสินค้า', 'akhri22@gmail.com', '1745131153_boss.png', '252525', '2025-04-20 13:39:13', 1, 1, '100.00', 25, 1, ''),
+(13, 'ชื่อสินค้า', 'akhri22@gmail.com', '1745131555_boss.png', '25', '2025-04-20 13:45:55', 1, 1, '100.00', 25, 5, '1745131555_hover_birhb5.jpg');
 
 -- --------------------------------------------------------
 
@@ -446,21 +432,6 @@ ALTER TABLE `order_history`
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `order_items`
---
-ALTER TABLE `order_items`
-  ADD PRIMARY KEY (`order_item_id`),
-  ADD KEY `order_id` (`order_id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indexes for table `payments`
---
-ALTER TABLE `payments`
-  ADD PRIMARY KEY (`payment_id`),
-  ADD KEY `order_id` (`order_id`);
-
---
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -495,14 +466,6 @@ ALTER TABLE `sell_offers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `shipping`
---
-ALTER TABLE `shipping`
-  ADD PRIMARY KEY (`shipping_id`),
-  ADD UNIQUE KEY `tracking_number` (`tracking_number`),
-  ADD KEY `order_id` (`order_id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -518,13 +481,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -536,7 +499,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `complaints`
 --
 ALTER TABLE `complaints`
-  MODIFY `complaint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `complaint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -548,55 +511,37 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `order_history`
 --
 ALTER TABLE `order_history`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `order_items`
---
-ALTER TABLE `order_items`
-  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `payments`
---
-ALTER TABLE `payments`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `product_detail`
 --
 ALTER TABLE `product_detail`
-  MODIFY `product_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `product_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `product_discounts`
 --
 ALTER TABLE `product_discounts`
-  MODIFY `discount_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `discount_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `product_ratings`
 --
 ALTER TABLE `product_ratings`
-  MODIFY `rating_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `rating_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `sell_offers`
 --
 ALTER TABLE `sell_offers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `shipping`
---
-ALTER TABLE `shipping`
-  MODIFY `shipping_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -635,18 +580,6 @@ ALTER TABLE `order_history`
   ADD CONSTRAINT `order_history_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
--- Constraints for table `order_items`
---
-ALTER TABLE `order_items`
-  ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `payments`
---
-ALTER TABLE `payments`
-  ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE;
-
---
 -- Constraints for table `product_detail`
 --
 ALTER TABLE `product_detail`
@@ -664,12 +597,6 @@ ALTER TABLE `product_discounts`
 ALTER TABLE `product_ratings`
   ADD CONSTRAINT `product_ratings_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
   ADD CONSTRAINT `product_ratings_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-
---
--- Constraints for table `shipping`
---
-ALTER TABLE `shipping`
-  ADD CONSTRAINT `shipping_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

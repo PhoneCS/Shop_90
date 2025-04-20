@@ -142,4 +142,33 @@ body {
     transform: translateY(1px); /* ทำให้ปุ่มดันลงเล็กน้อย */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* ลดขนาดเงาเมื่อคลิก */
 }
+/* สไตล์ปุ่ม index  */
 
+/* สไตล์ปุ่ม */
+.btn-add-to-cart {
+    background-color: #A0522D; /* สีพื้นหลัง */
+    color: #fff; /* สีตัวอักษร */
+    padding: 10px 20px; /* กำหนดช่องว่างภายใน */
+    font-size: 16px; /* ขนาดตัวอักษร */
+    font-weight: bold; /* ทำให้ตัวอักษรหนา */
+    border: none; /* ไม่มีขอบ */
+    border-radius: 15px; /* ทำให้มุมปุ่มโค้งมน */
+    margin-bottom: 67px;
+    cursor: pointer; /* แสดงว่าเป็นปุ่มที่สามารถคลิกได้ */
+    transition: all 0.3s ease; /* การเปลี่ยนแปลงของปุ่มเมื่อมีการโฮเวอร์หรือคลิก */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงาของปุ่ม */
+}
+
+/* การเปลี่ยนแปลงเมื่อมีการโฮเวอร์ */
+.btn-add-to-cart:hover {
+    background-color: #ff7b33; /* สีพื้นหลังเมื่อโฮเวอร์ */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* เงาที่ใหญ่ขึ้นเมื่อโฮเวอร์ */
+    transform: translateY(-3px); /* ทำให้ปุ่มยกขึ้นเล็กน้อย */
+}
+
+/* การเปลี่ยนแปลงเมื่อปุ่มถูกคลิก */
+.btn-add-to-cart:active {
+    background-color: #e94e00; /* สีพื้นหลังเมื่อคลิก */
+    transform: translateY(1px); /* ทำให้ปุ่มดันลงเล็กน้อย */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* ลดขนาดเงาเมื่อคลิก */
+}

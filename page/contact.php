@@ -1,4 +1,20 @@
-<?php include('../includes/header.php'); 
+<?php
+include('../includes/header.php');
+if (!isset($_SESSION['user_id'])) {
+    echo "
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'กรุณาเข้าสู่ระบบ',
+            text: 'คุณต้องเข้าสู่ระบบก่อนเข้าถึงหน้านี้',
+            confirmButtonText: 'เข้าสู่ระบบ'
+        }).then(() => {
+            window.location.href = '../auth/login.php';
+        });
+    </script>";
+    exit();
+}
 
 // ตรวจสอบว่าผู้ใช้ล็อกอินแล้วหรือยัง
 $name = '';
@@ -19,6 +35,7 @@ if (isset($_SESSION['user_id'])) {
     $email = htmlspecialchars($user_email);
 }
 ?>
+
 <!-- รวมส่วนหัว -->
 
 <!-- Contact Us Section -->

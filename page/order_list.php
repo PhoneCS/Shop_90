@@ -1,5 +1,21 @@
 <?php
 include('../includes/header.php'); 
+if (!isset($_SESSION['user_id'])) {
+    echo "
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'กรุณาเข้าสู่ระบบ',
+            text: 'คุณต้องเข้าสู่ระบบก่อนเข้าถึงหน้านี้',
+            confirmButtonText: 'เข้าสู่ระบบ'
+        }).then(() => {
+            window.location.href = '../auth/login.php';
+        });
+    </script>";
+    exit();
+}
+
 $user_id = $_SESSION['user_id']; // ใช้ user_id จาก session ซึ่งจะเป็นของผู้ที่ล็อกอิน
 
 // กำหนดจำนวนรายการต่อหน้า

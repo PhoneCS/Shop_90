@@ -1,6 +1,6 @@
 <?php
 include('./includes/headerIndex.php');
-
+$is_logged_in = isset($_SESSION['user_id']);  // ตรวจสอบว่า user ได้ล็อกอินแล้วหรือยัง
 // ดึงข้อมูลสินค้าทั่วไป
 $sql = "SELECT p.*, d.discounted_price, 
                (SELECT AVG(rating) FROM product_ratings r WHERE r.product_id = p.product_id) AS avg_rating
@@ -82,8 +82,11 @@ $result_categories = $conn->query($sql_categories);
                     </div>
                 </div>
             </a>
-            <button class="btn-add-to-cart-product" data-product-name="<?= $product_name; ?>"
-                data-product-id="<?= $product_id; ?>">เพิ่มลงตะกร้า</button>
+           <button class="btn-add-to-cart" 
+                data-product-name="<?= $row['product_name']; ?>" 
+                data-product-id="<?= $row['product_id']; ?>"
+                data-product-stock="1"
+                data-is-logged-in="<?= $is_logged_in ? '1' : '0' ?>">เพิ่มลงตะกร้า</button>
         </div>
         <?php } ?>
     </div>

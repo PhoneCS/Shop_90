@@ -61,4 +61,5 @@
 <script src="../assets/js/cart.js"></script>
 <script src="../assets/js/productsaletag.js"></script>
 <script src="../assets/js/checkout.js"></script>
+<script src="../assets/js/issue-management.js"></script>
 

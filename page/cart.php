@@ -1,5 +1,20 @@
 <?php 
 include('../includes/header.php'); // รวมส่วนหัว
+if (!isset($_SESSION['user_id'])) {
+    echo "
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'กรุณาเข้าสู่ระบบ',
+            text: 'คุณต้องเข้าสู่ระบบก่อนเข้าถึงหน้านี้',
+            confirmButtonText: 'เข้าสู่ระบบ'
+        }).then(() => {
+            window.location.href = '../auth/login.php';
+        });
+    </script>";
+    exit();
+}
 
 // ตรวจสอบว่า user_id อยู่ใน session หรือไม่
 if (isset($_SESSION['user_id'])) {
@@ -96,9 +111,14 @@ if (isset($_SESSION['user_id'])) {
 </section>
 
 <?php 
-    } else {
-        echo "<p>ไม่มีสินค้าที่อยู่ในตะกร้า</p>";
-    }
+   } else {
+    echo '
+    <div style="text-align: center; margin-top: 50px;">
+        <img src="../assets/image/cart.png" alt="ไม่มีสินค้าในตะกร้า" style="max-width: 1000px; height: auto;">
+        <p style="font-size: 18px; margin-top: 20px; color: red;">ไม่มีสินค้าที่อยู่ในตะกร้า</p>
+    </div>';
+}
+
 } else {
     echo "<p>กรุณาล็อกอินเพื่อดูตะกร้าสินค้า</p>";
 }

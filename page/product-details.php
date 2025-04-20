@@ -1,6 +1,6 @@
 <?php
 include('../includes/header.php');
-
+$is_logged_in = isset($_SESSION['user_id']);
 if (!isset($_SESSION['user_id'])) {
     echo "<script>
         Swal.fire({
@@ -197,8 +197,10 @@ if ($result->num_rows > 0) {
 
 
             <!-- ปุ่มเพิ่มลงตะกร้า -->
-            <button class="btn-add-to-cart-product" data-product-name="<?php echo $product['product_name']; ?>"
-                data-product-id="<?php echo $product['product_id']; ?>" data-product-stock="<?php echo $product['product_stock']; ?>">เพิ่มลงตะกร้า</button>
+                
+                <button class="btn-add-to-cart-product" data-product-name="<?= $product['product_name']; ?>"
+                data-product-id="<?= $product['product_id']; ?>" data-product-stock="<?php echo $product['product_stock']; ?>"
+                data-is-logged-in="<?= $is_logged_in ? '1' : '0' ?>">เพิ่มลงตะกร้า</button>
 
 
             <!-- ข้อมูลเพิ่มเติม -->

@@ -1,6 +1,38 @@
 <?php
 include('../includes/header.php');
+// ตรวจสอบการเข้าสู่ระบบ
+if (!isset($_SESSION['user_id'])) {
+  echo "
+  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+  <script>
+      Swal.fire({
+          icon: 'warning',
+          title: 'กรุณาเข้าสู่ระบบ',
+          text: 'คุณต้องเข้าสู่ระบบก่อนใช้งานหน้านี้',
+          confirmButtonText: 'เข้าสู่ระบบ'
+      }).then(() => {
+          window.location.href = '../auth/login.php';
+      });
+  </script>";
+  exit();
+}
 
+// ตรวจสอบสิทธิ์ว่าเป็น admin
+if ($_SESSION['user_type'] !== 'admin') {
+  echo "
+  <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+  <script>
+      Swal.fire({
+          icon: 'error',
+          title: 'สิทธิ์ไม่เพียงพอ',
+          text: 'หน้านี้สำหรับผู้ดูแลระบบเท่านั้น',
+          confirmButtonText: 'กลับหน้าหลัก'
+      }).then(() => {
+          window.location.href = '../index.php';
+      });
+  </script>";
+  exit();
+}
 // ดึง order_id และ product_name จากตาราง products โดยเชื่อมกับ order_history
 $sql = "SELECT o.order_id, p.product_name 
         FROM order_history o
@@ -25,21 +57,6 @@ $result = $conn->query($sql);
               <option value="<?= $row['order_id'] ?>">#<?= $row['order_id'] ?> (<?= $row['product_name'] ?>)</option>
             <?php endwhile; ?>
           </select>
-        </div>
-
-        <div class="ship-input-box">
-          <label for="order_date">วันที่สั่งซื้อ</label>
-          <input type="date" id="order_date" name="order_date" required>
-        </div>
-
-        <div class="ship-input-box">
-          <label for="address">ที่อยู่</label>
-          <textarea id="address" name="address" rows="3" required></textarea>
-        </div>
-
-        <div class="ship-input-box">
-          <label for="phone">เบอร์ติดต่อ</label>
-          <input type="tel" id="phone" name="phone" required>
         </div>
       </div>
 

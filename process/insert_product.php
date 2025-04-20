@@ -47,12 +47,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                        VALUES ('$last_id', '$product_description', '$product_additional_info')";
 
         if ($conn->query($sql_detail) === TRUE) {
-            echo "<script>alert('เพิ่มสินค้าสำเร็จ'); window.location='../page/addProduct.php';</script>";
+            echo "
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'เพิ่มสินค้าสำเร็จ',
+                        text: 'สินค้าของคุณได้ถูกเพิ่มเรียบร้อยแล้ว',
+                        confirmButtonText: 'ตกลง'
+                    }).then(() => {
+                        window.location.href = '../page/addProduct.php'; // กลับไปที่หน้า addProduct
+                    });
+                });
+            </script>";
         } else {
-            echo "Error: " . $sql_detail . "<br>" . $conn->error;
+            echo "
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาดในการเพิ่มรายละเอียดสินค้า',
+                        text: 'ไม่สามารถเพิ่มข้อมูลสินค้าในตารางรายละเอียดได้',
+                        confirmButtonText: 'ตกลง'
+                    });
+                });
+            </script>";
         }
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'เกิดข้อผิดพลาดในการเพิ่มสินค้า',
+                    text: 'ไม่สามารถเพิ่มสินค้าลงในฐานข้อมูลได้',
+                    confirmButtonText: 'ตกลง'
+                });
+            });
+        </script>";
     }
 }
 ?>

@@ -3,9 +3,19 @@ include('../includes/header.php');;
 
 // ตรวจสอบว่าเข้าสู่ระบบหรือยัง
 if (!isset($_SESSION['user_id'])) {
-    echo "<p style='color: red;'>กรุณาเข้าสู่ระบบก่อน</p>";
-    include('../includes/footer.php');
-    exit;
+    echo "
+    <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'กรุณาเข้าสู่ระบบ',
+            text: 'คุณต้องเข้าสู่ระบบก่อนเข้าถึงหน้านี้',
+            confirmButtonText: 'เข้าสู่ระบบ'
+        }).then(() => {
+            window.location.href = '../auth/login.php';
+        });
+    </script>";
+    exit();
 }
 
 $user_id = $_SESSION['user_id'];

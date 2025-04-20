@@ -47,7 +47,7 @@ $total_pages = ceil($total_records / $limit);
             <p><strong>วันที่แจ้ง:</strong> <?= date('d/m/Y H:i', strtotime($row['created_at'])) ?></p>
             <form action="../process/del_issue_management.php" method="POST" style="display:inline;">
                 <input type="hidden" name="complaint_id" value="<?= $row['complaint_id'] ?>">
-                <button type="submit" class="custom-delete-btn" onclick="return confirm('คุณต้องการลบหรือไม่?')">
+                <button type="submit" class="custom-delete-btn" id="deleteBtn">
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </form>
